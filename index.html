@@ -13,7 +13,71 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
+            <div id="my-bg" style="
+            display: none;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, .5);
+            z-index:99999"
+            onclick="hide_courses()">
+            </div>
+            <div id="my-courses" style="
+            display: none;
+            border-radius: .25em;
+            text-align: center;
+            position: fixed;
+            background-color: #3c2c62;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 80px lighten(#000, 60%);
+            font-weight: 300;
+            font-size: 20px;
+            z-index: 999999;">
+                <table class="table">
+                    <tr>
+                        <td>CS6410</td>
+                        <td>Software Verification</td>
+                        <td>A-</td>
+                    </tr>
+                    <tr>
+                        <td>CS6250</td>
+                        <td>Advanced Compiler Optimizations</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>CS6483</td>
+                        <td>Constraint Programming</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>CS5260</td>
+                        <td>Compiler Optimizations</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>CS5320</td>
+                        <td>Distributed Computing</td>
+                        <td>A-</td>
+                    </tr>
+                    <tr>
+                        <td>CS6383</td>
+                        <td>Introduction to Compiler Engineering</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>CS5543</td>
+                        <td>The Blockchain: Theory and Practice</td>
+                        <td>A-</td>
+                    </tr>
+                    <tr>
+                        <td> CS5453</td>
+                        <td>Internet of Things</td>
+                        <td>A-</td>
+                    </tr>
+                </table>
+            </div>
 		<!-- Sidebar -->
 			<section id="sidebar">
 				<div class="inner">
@@ -46,7 +110,7 @@
 				<!-- One -->
 					<section id="one" class="wrapper style2 spotlights">
 						<section>
-							<a href="#" class="image"><img src="images/akash.jpg" alt="" data-position="center center" /></a>
+							<a class="image"><img src="images/akash.jpg" alt="" data-position="center center" /></a>
 							<div class="content">
 								<div class="inner">
 									<h2>About Me</h2>
@@ -58,9 +122,7 @@
                                         Im doing my master's under the guidance of <a href="https://sbjoshi.github.io/" target="_blank">Prof. Saurabh Joshi</a> in the field of Software Verification and exploring the applications of Formal Methods in Computer Security. I have also worked under <a href="https://iith.ac.in/~ramakrishna/" target="_blank">Prof. Ramakrishna Upadrasta</a> in improving Compiler Optimizations through better profiling.
                                     </p>
 									<p>
-                                        When I'm not coding, you can find me playing a game of DOTA 2 with my friends, admiring my fish tanks or hanging out with my buddy Simba :)
-                                    </br>
-                                    P.S. "TIFitis" is my universal gamer tag :D
+                                        When I'm not coding, you can find me playing a game of DOTA 2 with my friends, admiring my fish tanks or hanging out with my buddy Simba (Yes, he's a good boy). Also learning to use a camera :). P.S. "TIFitis" is my universal gamer tag :D
                                     </p>
                                     <!--
 									<ul class="actions">
@@ -75,42 +137,45 @@
 				<!-- Two -->
 					<section id="two" class="wrapper style3 fade-up">
 						<div class="inner">
-							<h2>What im good at</h2>
+							<h2>What am I good at?</h2>
+                            <!--
 							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
+                            -->
 							<div class="features">
 								<section>
 									<span class="icon solid major fa-code"></span>
-									<h3>Lorem ipsum amet</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-lock"></span>
-									<h3>Aliquam sed nullam</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<h3>Programming</h3>
+									<p>Skilled in C, C++ and able to adapt quickly to new languages. Languages I have used over the years include Rust, Python, JS, C#.</p>
 								</section>
 								<section>
 									<span class="icon solid major fa-cog"></span>
-									<h3>Sed erat ullam corper</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<h3>Frameworks</h3>
+									<p>I have used the following frameworks in multiple projects and am confortable with: LLVM Compiler Infrastructure, CProver Verification Framework, MLIR.</p>
+								</section>
+								<section>
+									<span class="icon solid major fa-cog"></span>
+									<h3>Tools</h3>
+									<p>Git, GDB, LLDB, Eclipse, <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>.</p>
 								</section>
 								<section>
 									<span class="icon solid major fa-desktop"></span>
-									<h3>Veroeros quis lorem</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<h3>Systems</h3>
+									<p>Linux System Administration and Server Deployment & Maintenance.</p>
 								</section>
 								<section>
-									<span class="icon solid major fa-link"></span>
-									<h3>Urna quis bibendum</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<span class="icon solid major fa-gem"></span>
+									<h3>Design Tools</h3>
+									<p>I have also worked with design tools such as Blender, ZBrush, Unity and Photoshop.</p>
 								</section>
 								<section>
-									<span class="icon major fa-gem"></span>
-									<h3>Aliquam urna dapibus</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<span class="icon solid major fa-gem"></span>
+							        <ul class="actions fit">
+							            <li><button onclick="show_courses()" class="button">Courses</button></li>
+							        </ul>
 								</section>
 							</div>
-							<ul class="actions">
-								<li><a href="generic.html" class="button">Learn more</a></li>
+							<ul class="actions special">
+								<li><a href="Akash_Banerjee_CV.pdf" class="button" target="_blank">My CV</a></li>
 							</ul>
 						</div>
 					</section>
@@ -119,7 +184,6 @@
 					<section id="three" class="wrapper style1 fade-up">
 						<div class="inner">
 							<h2>Get in touch</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
 							<div class="split style1">
 								<section>
 									<form method="post" action="#">
@@ -138,7 +202,7 @@
 											</div>
 										</div>
 										<ul class="actions">
-											<li><a href="" class="button submit">Send Message</a></li>
+											<li><a class="button">Send Message</a></li>
 										</ul>
 									</form>
 								</section>
@@ -156,17 +220,13 @@
 											<a href="mailto: cs18mtech11023@iith.ac.in" target="_blank">cs18mtech11023@iith.ac.in</a>
 										</li>
 										<li>
-											<h3>Phone</h3>
-											<span>(000) 000-0000</span>
-										</li>
-										<li>
 											<h3>Social</h3>
 											<ul class="icons">
-												<li><a href="https://twitter.com/akashbanerjeeab"  target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+												<li><a href="https://twitter.com/akashbanerjeeab" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 												<!--<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>-->
-												<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-												<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-												<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+												<li><a href="https://github.com/TIFitis" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+												<li><a href="https://www.linkedin.com/in/akashbanerjeeab" target="_blank" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+												<li><a href="https://www.instagram.com/akashbanerjeeab/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 											</ul>
 										</li>
 									</ul>
@@ -181,7 +241,7 @@
 			<footer id="footer" class="wrapper style1-alt">
 				<div class="inner">
 					<ul class="menu">
-						<li>&copy; Akash Banerjee 2020</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; Akash Banerjee 2020</li><li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
 					</ul>
 				</div>
 			</footer>
@@ -194,6 +254,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+            <script src="assets/js/show.courses.js"></script>
 
 	</body>
 </html>
