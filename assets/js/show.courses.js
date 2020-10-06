@@ -1,9 +1,9 @@
 function show_courses() {
-    $("#my-courses").fadeIn("slow");
+    $("#my-courses").fadeIn();
     $("#my-bg").fadeIn("slow");
 }
 function show_projects() {
-    $("#my-projects").fadeIn("slow");
+    $("#my-projects").fadeIn();
     $("#my-bg").fadeIn("slow");
 }
 function hide_all() {

@@ -2552,7 +2552,7 @@ input, select, textarea {
 				}
 
 				.wrapper.style3 .icon.major:before {
-					color: #b74e91;
+					color: #11999e;
 				}
 
 				.wrapper.style3-alt .icon.major:before {
@@ -2867,16 +2867,18 @@ input, select, textarea {
         position: fixed;
         height: 100%;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0);
+        background-color: rgba(255, 255, 255, .25);
+        -webkit-backdrop-filter:saturate(180%) blur(8px);
+        backdrop-filter: saturate(180%) blur(8px);
         z-index:99999
     }
 
     div.special{
         display: none;
-        border-radius: .25em;
+        border-radius: .5em;
         text-align: left;
         position: fixed;
-        background-color: #b74e91;
+        background-color: rgba(255, 255, 255, .5);
         width: 80%;
 	    padding: 1.5em;
         max-height: 80%;
@@ -2884,52 +2886,62 @@ input, select, textarea {
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 999999;
-        -moz-box-shadow:    inset 0 0 10px rgba(0, 0, 0, .5);
-        -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, .5);
-        box-shadow:         inset 0 0 10px rgba(0, 0, 0, .5);
+        -moz-box-shadow:    0 0 10px rgba(0, 0, 0, .25);
+        -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+        box-shadow:         0 0 10px rgba(0, 0, 0, .25);
         overflow: scroll;
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
     }
+
+    div.special.narrow{
+        width: 50%;
+    }
+
     div.special::-webkit-scrollbar {
         display: none;
     }
 
     div.special article{
-	    padding: .5em;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: .25em;
-        margin: 0 0 1em 0;
-    }
-
-    div.special article:last-child{
-	    padding: .25em;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: .5em;
+	    padding: 1em;
+        border: 1px solid rgba(255, 255, 255, 1);
+        background-color: rgba(255, 255, 255, 0.9);
         margin: 0 0 0 0;
     }
 
+    div.special article:first-child{
+        border-top-left-radius: .5em;
+        border-top-right-radius: .5em;
+    }
+
+    div.special article:last-child{
+        border-bottom-left-radius: .5em;
+        border-bottom-right-radius: .5em;
+    }
+
     div.special article h3{
-        color: #ffffff;
+        color: #000000;
         display: inline;
         float: left;
     }
     div.special article date{
+        color: #555555;
         float: right;
     }
 
     div.special article p{
         display: block;
-        color: #dddddd;
+        color: #111111;
         margin: .5em 0 0 0;
         text-align: justify;
         text-justify: inter-word;
     }
 
+
 /* Section */
 
 	section.special {
-		text-align: left;
+		text-align: center;
 	}
 
 	header p {
@@ -2953,7 +2965,6 @@ input, select, textarea {
 	header h4 + p,
 	header h5 + p,
 	header h6 + p {
-        display: inline;
 		font-size: 0.9em;
 		margin-top: -0.6em;
 		line-height: 1.5em;
@@ -3209,13 +3220,14 @@ input, select, textarea {
 		margin: 0 0 0 0;
 		width: 100%;
         border-collapse: collapse;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: .25em;
+        border: 1px solid rgba(255, 255, 255, 1);
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: .5em;
         overflow: hidden;
 	}
 
 		table tbody tr {
-            color: #cccccc;
+            color: #111111;
 			border: solid 0 rgba(255, 255, 255, 0.15);
 			border-left: 0;
 			border-right: 0;
@@ -3312,7 +3324,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style1 {
-			background-color: #5e42a6;
+			background-color: #393e46;
 		}
 
 		.wrapper.style1-alt {
@@ -3320,7 +3332,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style2 {
-			background-color: #5052b5;
+			background-color: #3e4094;
 		}
 
 		.wrapper.style2-alt {
@@ -3328,7 +3340,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style3 {
-			background-color: #b74e91;
+			background-color: #11999e;
 		}
 
 		.wrapper.style3-alt {
