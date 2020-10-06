@@ -13,28 +13,91 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-            <div id="my-bg" style="
-            display: none;
-            position: fixed;
-            height: 100%;
-            width: 100%;
-            background-color: rgba(0, 0, 0, .5);
-            z-index:99999"
-            onclick="hide_courses()">
+            <div id="my-bg" class="bg" onclick="hide_all()"></div>
+            <div id="my-projects" class="special">
+                <article class="special">
+                <h3>BPI Enhancements</h3>
+                <date>Apr 2020</date>
+                <br>
+                <p>Proposed and implemented improvements to the Branch Probability Information
+pass in LLVM to allow better static profling leading to speed-up of up to 1.07x, as
+part of the course project for Advanced Compiler Optimizations - CS6240.</br>
+Accepted as a poster in EuroLLVM-20 held at Paris, France.</p>
+                </article>
+                <article class="special">
+                <h3>Loop Acceleration</h3>
+                <date>Oct 2019</date>
+                <br>
+                <p>Added a loop acceleration module to the Pinaka verifer for quick detection of counterexamples in loops simulating polynomial functions. Pinaka is developed by IITH Software Verifcation Group which won the third-fastest verifer position in SV-COMP’20
+Floats sub-category, amongst other positions and was the only entry from Indian
+academia.</br>
+Commended by Prof. B.S. Murty, Director of IIT Hyderabad and Dr. R.P. Nishank, The
+Union Cabinet Minister for Education, Govt. of India for this work.</p>
+                </article>
+                <article class="special">
+                <h3>LLVM2GOTO</h3>
+                <date>Sep 2019</date>
+                <br>
+                <p>A tool to translate LLVM IR to CBMC-GOTO. LLVM supports multiple
+front-ends like C, C++, FORTRAN, Swift, etc., which get converted to LLVM-IR. CBMC
+is a tool to verify programs which has its own GOTO IR, this tool translates LLVM-IR
+to GOTO IR, allowing us to potentially verify all the languages that are supported by
+LLVM’s front-end and also verify programs after LLVM optimizations.</p>
+                </article>
+                <article class="special">
+                <h3>COOL Compiler</h3>
+                <date>Aug 2019</date>
+                <br>
+                <p>Designed and implemented a compiler for the COOL language to generate LLVM IR
+as part of the course project for Advanced Compiler Design - CS CS6240.</p>
+                </article>
+                <article class="special">
+                <h3>DPLL SAT Solver</h3>
+                <date>Mar 2019</date>
+                <br>
+                <p>Implemented highly optimized DPLL and CDCL SAT solvers with watch literals and lazy data structures, and an encoder for MaxSAT using Totalizer encoding as part of
+the course Constraint Programming - CS6483.</p>
+                </article>
+                <article class="special">
+                <h3>Hybrid Mutual Exclusion in Distributed Systems</h3>
+                <date>Nov 2018</date>
+                <br>
+                <p>An efficient implementation of a hybrid mutual exclusion algorithm for distributed systems by combining Raymond’s and Maekawa’s algorithms by multiplexing
+between them when communicating within clusters and across clusters, based on
+load, latency and throughput. As part of the course project for Distributed Computing
+- CS5320.</p>
+                </article>
+                <article class="special">
+                <h3>Thin Slicing in GOTO</h3>
+                <date>Nov 2018</date>
+                <br>
+                <p>Implemented thin-slicing in CBMC-GOTO. Slicing is a beneficial tool in debugging large programs, by only presenting the relevant sections of code, allowing the programmer to focus and debug more efficiently. As part of the course project for Compiler Engineering - CS6383.</p>
+                </article>
+                <article class="special">
+                <h3>Bitcoin Wallet</h3>
+                <date>Oct 2018</date>
+                <br>
+                <p>Created a BTC wallet application which can create and manage BTC addresses,
+and also handle transactions with support for both single and multisig authorization. This was done as part of the course project for Blockchain-Theory & Practice -
+CS5543.</p>
+                </article>
+                <article class="special">
+                <h3>Dynamic peer to peer communication system in C</h3>
+                <date>Oct 2018</date>
+                <br>
+                <p>Created a tool to dynamically establish connections between nodes, where clients and servers may connect and disconnect at any time, and all nodes are automatically
+synchronized as long as at least any one server node is available, throughout the
+duration. This was done as part of the course Distributed Computing - CS5320.</p>
+                </article>
+                <article class="special">
+                <h3>Game - A Lost Tale</h3>
+                <date>Feb 2017</date>
+                <br>
+                <p>Developed a 3D visual game in Unity-Game engine using Blender with 3d modelling, animation, world design, lighting and particle systems. A video showing the game is
+available here. As part of a summer project during B.Tech.</p>
+                </article>
             </div>
-            <div id="my-courses" style="
-            display: none;
-            border-radius: .25em;
-            text-align: center;
-            position: fixed;
-            background-color: #3c2c62;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 80px lighten(#000, 60%);
-            font-weight: 300;
-            font-size: 20px;
-            z-index: 999999;">
+            <div id="my-courses" class="special">
                 <table class="table">
                     <tr>
                         <td>CS6410</td>
@@ -171,6 +234,9 @@
 									<span class="icon solid major fa-gem"></span>
 							        <ul class="actions fit">
 							            <li><button onclick="show_courses()" class="button">Courses</button></li>
+							        </ul>
+							        <ul class="actions fit">
+							            <li><button onclick="show_projects()" class="button">Projects</button></li>
 							        </ul>
 								</section>
 							</div>

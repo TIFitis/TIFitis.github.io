@@ -2860,10 +2860,76 @@ input, select, textarea {
 
 		}
 
-/* Section/Article */
+/* Div Special */
 
-	section.special, article.special {
-		text-align: center;
+    div.bg{
+        display: none;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0);
+        z-index:99999
+    }
+
+    div.special{
+        display: none;
+        border-radius: 3em;
+        text-align: left;
+        position: fixed;
+        background-color: #b74e91;
+        width: 80%;
+	    padding: 1.5em;
+        max-height: 80%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999999;
+        -moz-box-shadow:    inset 0 0 10px #000000;
+        -webkit-box-shadow: inset 0 0 10px #000000;
+        box-shadow:         inset 0 0 10px #000000;
+        overflow: scroll;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    div.special::-webkit-scrollbar {
+        display: none;
+    }
+
+    div.special article{
+	    padding: .5em;
+        border: 2px solid rgba(255, 255, 255, .9);
+        border-radius: .5em;
+        margin: 0 0 1em 0;
+    }
+
+    div.special article:last-child{
+	    padding: .5em;
+        border: 2px solid rgba(255, 255, 255, .9);
+        border-radius: .5em;
+        margin: 0 0 0 0;
+    }
+
+    div.special article h3{
+        color: #ffffff;
+        display: inline;
+        float: left;
+    }
+    div.special article date{
+        float: right;
+    }
+
+    div.special article p{
+        display: block;
+        color: #cccccc;
+        margin: .5em 0 0 0;
+        text-align: justify;
+        text-justify: inter-word;
+    }
+
+/* Section */
+
+	section.special {
+		text-align: left;
 	}
 
 	header p {
@@ -2887,6 +2953,7 @@ input, select, textarea {
 	header h4 + p,
 	header h5 + p,
 	header h6 + p {
+        display: inline;
 		font-size: 0.9em;
 		margin-top: -0.6em;
 		line-height: 1.5em;
@@ -3139,12 +3206,17 @@ input, select, textarea {
 	}
 
 	table {
-		margin: 0 0 2em 0;
+		margin: 0 0 0 0;
 		width: 100%;
+        border-collapse: collapse;
+        border: 2px solid rgba(255, 255, 255, .9);
+        border-radius: .5em;
+        overflow: hidden;
 	}
 
 		table tbody tr {
-			border: solid 1px rgba(255, 255, 255, 0.15);
+            color: #cccccc;
+			border: solid 0 rgba(255, 255, 255, 0.15);
 			border-left: 0;
 			border-right: 0;
 		}
