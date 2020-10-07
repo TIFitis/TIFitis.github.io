@@ -2515,6 +2515,12 @@ input, select, textarea {
 			font-weight: 900;
 		}
 
+		.icon.projects:before {
+            color: #000000;
+            margin: 0 0 0 .5em;
+			font-family: 'Font Awesome 5 Brands';
+		}
+
 		.icon.brands:before {
 			font-family: 'Font Awesome 5 Brands';
 		}
@@ -2868,8 +2874,8 @@ input, select, textarea {
         height: 100%;
         width: 100%;
         background-color: rgba(0, 0, 0, .4);
-        -webkit-backdrop-filter:saturate(180%) blur(8px);
-        backdrop-filter: saturate(180%) blur(8px);
+        -webkit-backdrop-filter:saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
         z-index:99999
     }
 
@@ -2935,6 +2941,11 @@ input, select, textarea {
         margin: .5em 0 0 0;
         text-align: justify;
         text-justify: inter-word;
+    }
+
+    div.special article p a{
+        color: #666666;
+        text-decoration: underline;
     }
 
 
