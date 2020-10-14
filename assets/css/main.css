@@ -2874,28 +2874,29 @@ input, select, textarea {
         height: 100%;
         width: 100%;
         background-color: rgba(0, 0, 0, .4);
-        -webkit-backdrop-filter:saturate(180%) blur(20px);
-        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter:saturate(180%) blur(.5em);
+        backdrop-filter: saturate(180%) blur(.5em);
         z-index:99999
     }
 
     div.special{
         display: none;
-        border-radius: .5em;
+        border-radius: 2em;
         text-align: left;
         position: fixed;
-        background-color: rgba(255, 255, 255, .5);
-        width: 80%;
+        background-color: rgba(255, 255, 255, .75);
 	    padding: 1.5em;
         max-height: 80%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 999999;
-        -moz-box-shadow:    0 0 10px rgba(0, 0, 0, .25);
-        -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .25);
-        box-shadow:         0 0 10px rgba(0, 0, 0, .25);
+        -moz-box-shadow:    0 0 10px rgba(0, 0, 0, .5);
+        -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        box-shadow:         0 0 10px rgba(0, 0, 0, .5);
         overflow: scroll;
+        -webkit-backdrop-filter:saturate(180%) blur(1em);
+        backdrop-filter: saturate(180%) blur(1em);
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
     }
@@ -2912,17 +2913,15 @@ input, select, textarea {
 	    padding: 1em;
         border: 1px solid rgba(255, 255, 255, 1);
         background-color: rgba(255, 255, 255, 0.9);
-        margin: 0 0 0 0;
+        margin: 1em 0 0 0;
+        -moz-box-shadow:    0 0 .5em rgba(0, 0, 0, .5);
+        -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
+        box-shadow:         0 0 .5em rgba(0, 0, 0, .5);
+        border-radius: 1em;
     }
 
     div.special article:first-child{
-        border-top-left-radius: .5em;
-        border-top-right-radius: .5em;
-    }
-
-    div.special article:last-child{
-        border-bottom-left-radius: .5em;
-        border-bottom-right-radius: .5em;
+        margin: 0 0 0 0;
     }
 
     div.special article h3{
@@ -3233,8 +3232,11 @@ input, select, textarea {
         border-collapse: collapse;
         border: 1px solid rgba(255, 255, 255, 1);
         background-color: rgba(255, 255, 255, 0.9);
-        border-radius: .5em;
+        border-radius: 1em;
         overflow: hidden;
+        -moz-box-shadow:    0 0 .5em rgba(0, 0, 0, .5);
+        -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
+        box-shadow:         0 0 .5em rgba(0, 0, 0, .5);
 	}
 
 		table tbody tr {
