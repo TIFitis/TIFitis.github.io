@@ -2901,6 +2901,13 @@ input, select, textarea {
         scrollbar-width: none;  /* Firefox */
     }
 
+    div.special.hover{
+        top: 50%;
+        left: 50%;
+        max-height: 50%;
+        max-width: 25%;
+    }
+
     div.special.narrow{
         width: 50%;
     }
