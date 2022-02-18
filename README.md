@@ -1,7 +1,7 @@
 # TIFitis.github.io
 
 
-##Credits:
+Credits:
 
     Hyperspace by HTML5 UP
     html5up.net | @ajlkn
