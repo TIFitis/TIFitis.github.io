@@ -5,353 +5,405 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>TIFitis</title>
-        <meta name="google-site-verification" content="pVWgrMgMQ-ihijZvDCgNk15Zmp2_wztU19quDbDku6Y" />
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/favicon/apple-touch-icon-114x114.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/favicon/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/favicon/apple-touch-icon-144x144.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="60x60" href="images/favicon/apple-touch-icon-60x60.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/favicon/apple-touch-icon-120x120.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/favicon/apple-touch-icon-76x76.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/favicon/apple-touch-icon-152x152.png" />
-        <link rel="icon" type="image/png" href="images/favicon/favicon-196x196.png" sizes="196x196" />
-        <link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32" />
-        <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16" />
-        <link rel="icon" type="image/png" href="images/favicon/favicon-128.png" sizes="128x128" />
-        <meta name="application-name" content="&nbsp;"/>
-        <meta name="msapplication-TileColor" content="#FFFFFF" />
-        <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png" />
-        <meta name="msapplication-square70x70logo" content="images/favicon/mstile-70x70.png" />
-        <meta name="msapplication-square150x150logo" content="images/favicon/mstile-150x150.png" />
-        <meta name="msapplication-wide310x150logo" content="images/favicon/mstile-310x150.png" />
-        <meta name="msapplication-square310x310logo" content="images/favicon/mstile-310x310.png" />
+<head>
+	<title>Akash Banerjee</title>
+	<meta name="google-site-verification" content="pVWgrMgMQ-ihijZvDCgNk15Zmp2_wztU19quDbDku6Y" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+</head>
 
-	</head>
-	<body class="is-preload">
-            <div id="my-bg" class="bg" onclick="hide_all()"></div>
-            <div id="my-projects" class="special">
+<body class="is-preload">
+	<div id="my-bg" class="bg" onclick="hide_all()"></div>
+	<div id="my-projects" class="special">
 		<article class="special">
-                <h3>OpenMP & LLVM-Flang</h3>
-                <date>Sep 2022</date>
-                <br>
-                <p>I am currently Working on adding target code generation support for the OpenMP Dialect in MLIR to enable High Performance Computing for The Frontier
-                supercomputer project. I am also working in parallel on the new llvm-flang Fortran compiler in LLVM. My LLVM Phabricator <a href="https://reviews.llvm.org/p/TIFitis/}{reviews.llvm.org/p/TIFitis" target="_blank">profile</a>.</p>
-                </article>
+			<h3>Clang Migration</h3>
+			<date>Feb 2023</date>
+			<br>
+			<p>One of the key contributors in the effort towards migrating the OpenMP codegen in Clang to the MLIR based OpenMPIRBuilder. This work
+				would enable the OpenMP MLIR dialect and Clang to share a lot of the codebase, thus improving code quality and
+				reducing code duplication. LLVM Phabricator: <a href="https://reviews.llvm.org/p/TIFitis/"
+					target="_blank">reviews.llvm.org/p/TIFitis</a>.</p>
+		</article>
 		<article class="special">
-                <h3>Proteus: Polymorphic Compilation</h3>
-                <date>Jun 2021</date>
-                <br>
-                <p>Proteus is a compiler tool which uses polymorphic compilation and execution techniques to mitigate a class of side channel attacks with minimal performance
-		overhead, compared to the other state-of-the-art solutions available. This work was done as part of my master's thesis project. It is currently in submission
-		awaiting reviews at a peer reviewed conference.</p>
-                </article>
-                <article class="special">
-                <h3>BPI Enhancements</h3>
-                <a href="https://github.com/TIFitis/BPI--llvm" target="_blank" class="icon projects fa-github"><span class="label">GitHub</span></a>
-                <date>Apr 2020</date>
-                <br>
-                <p>Proposed and implemented improvements to the Branch Probability Information
-pass in LLVM to allow better static profiling leading to speed-up of up to 1.07x, as
-part of the course project for Advanced Compiler Optimizations - CS6240.</br>
-Accepted as a <a href="http://llvm.org/devmtg/2020-04/talks.html#Poster_89" target="_blank">poster in EuroLLVM-20</a> held at Paris, France.</p>
-                </article>
-                <article class="special">
-                <h3>Loop Acceleration</h3>
-                <a href="https://github.com/TIFitis/loop_acceleration" target="_blank" class="icon projects fa-github"><span class="label">GitHub</span></a>
-                <date>Oct 2019</date>
-                <br>
-                <p>Added a loop acceleration module to the Pinaka verifier for quick detection of counterexamples in loops simulating polynomial functions. Pinaka is developed by IITH Software Verifcation Group which won the third-fastest verifier position in SV-COMP’20
-Floats sub-category, amongst other positions and was the only entry from Indian
-academia.</br>
-Appreciated by the Dept. of CSE for this work <a href="https://cse.iith.ac.in/news/2019-12-31-Pinaka-at-SVCOMP-2020-Eti-Chaudhary-and-Saurabh-Joshi.html" target="_blank">here</a>.</p>
-                </article>
-                <article class="special">
-                <h3>LLVM2GOTO</h3>
-                <a href="https://github.com/TIFitis/llvm2goto" target="_blank" class="icon projects fa-github"><span class="label">GitHub</span></a>
-                <date>Sep 2019</date>
-                <br>
-                <p>A tool to translate LLVM IR to CBMC-GOTO. LLVM supports multiple
-front-ends like C, C++, FORTRAN, Swift, etc., which get converted to LLVM-IR. CBMC
-is a tool to verify programs which has its own GOTO IR. Our tool translates LLVM-IR
-to GOTO IR, allowing us to potentially verify all the languages that have a front-end in LLVM, and also verify programs post LLVM optimizations.</p>
-                </article>
-                <article class="special">
-                <h3>COOL Compiler</h3>
-                <date>Aug 2019</date>
-                <br>
-                <p>Designed and implemented a compiler for the COOL language to generate LLVM IR
-as part of the course project for Advanced Compiler Design - CS CS6240.</p>
-                </article>
-                <article class="special">
-                <h3>SAT Solvers</h3>
-                <a href="https://github.com/TIFitis/constraint-programming" target="_blank" class="icon projects fa-github"><span class="label">GitHub</span></a>
-                <date>Mar 2019</date>
-                <br>
-                <p>Implemented DPLL SAT Solver with MOMS heuristics, CDCL SAT Solver with Lazy Datastructure and Watch Literals, MaxSAT with Totalizer encoding and an Incomplete SAT Solver based on Break-only-poly algorithm and WalkSAT. As part of the course project for Constraint Programming - CS6483.</p>
-                </article>
-                <article class="special">
-                <h3>Hybrid Mutual Exclusion in Distributed Systems</h3>
-                <a href="https://github.com/TIFitis/Distributed-Computing" target="_blank" class="icon projects fa-github"><span class="label">GitHub</span></a>
-                <date>Nov 2018</date>
-                <br>
-                <p>An efficient implementation of a hybrid mutual exclusion algorithm for distributed systems by combining Raymond’s and Maekawa’s algorithms by multiplexing
-between them when communicating within clusters and across clusters, based on
-load, latency and throughput. As part of the course project for Distributed Computing - CS5320.</p>
-                </article>
-                <article class="special">
-                <h3>Thin Slicing in GOTO</h3>
-                <date>Nov 2018</date>
-                <br>
-                <p>Implemented thin-slicing in CBMC-GOTO. Slicing is a beneficial tool in debugging large programs, by only presenting the relevant sections of code, allowing the programmer to focus and debug more efficiently. As part of the course project for Compiler Engineering - CS6383.</p>
-                </article>
-                <article class="special">
-                <h3>Bitcoin Wallet</h3>
-                <a href="https://github.com/TIFitis/BTC-Project" target="_blank" class="icon projects fa-github"><span class="label">GitHub</span></a>
-                <date>Oct 2018</date>
-                <br>
-                <p>Created a BTC wallet application which can create and manage BTC addresses,
-and also handle transactions with support for both single and multisig authorization. This was done as part of the course project for Blockchain-Theory & Practice -
-CS5543.</p>
-                </article>
-                <article class="special">
-                <h3>Game - A Lost Tale</h3>
-                <date>Feb 2017</date>
-                <br>
-                <p>Developed a 3D visual game in Unity-Game engine using Blender with 3d modelling, animation, world design, lighting and particle systems. A video demo of the game is
-available <a href="https://www.youtube.com/watch?v=ONhRfq1dVyw" target="_blank">here</a>. As part of a summer project during bachelor's.</p>
-                </article>
-            </div>
-            <div id="my-courses" class="special narrow">
-                <table class="table">
-                    <tr>
-                        <td>CS6410</td>
-                        <td>Software Verification</td>
-                    </tr>
-                    <tr>
-                        <td>CS6250</td>
-                        <td>Advanced Compiler Optimizations</td>
-                    </tr>
-                    <tr>
-                        <td>CS6483</td>
-                        <td>Constraint Programming</td>
-                    </tr>
-                    <tr>
-                        <td>CS5260</td>
-                        <td>Compiler Optimizations</td>
-                    </tr>
-                    <tr>
-                        <td>CS5320</td>
-                        <td>Distributed Computing</td>
-                    </tr>
-                    <tr>
-                        <td>CS6383</td>
-                        <td>Introduction to Compiler Engineering</td>
-                    </tr>
-                    <tr>
-                        <td>CS5543</td>
-                        <td>The Blockchain: Theory and Practice</td>
-                    </tr>
-                    <tr>
-                        <td> CS5453</td>
-                        <td>Internet of Things</td>
-                    </tr>
-                </table>
-            </div>
-            <div id="simba-pic" class="special hover">
-                <table class="table">
-                    <tr>
-                        <td><a class="image"><img src="https://source.unsplash.com/UPIdbdqsSas/4000x4000" style="height: 100%; width: 100%; object-fit: contain" alt="" data-position="center center" /></td>
-                    </tr>
-                </table>
-            </div>
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#intro">Welcome</a></li>
-							<li><a href="#one">About Me</a></li>
-							<li><a href="#two">My Skills</a></li>
-							<li><a href="#three">Contact</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
+			<h3>OpenMP</h3>
+			<date>Sep 2022</date>
+			<br>
+			<p>Working on adding device offloading support features to the OpenMP dialect in MLIR. Our team was the first to
+				achieve end-to-end kernel execution on device for the llvm-flang driver. Received AMD Spotlight award in
+				recognition of this work. LLVM Phabricator: <a href="https://reviews.llvm.org/p/TIFitis/"
+					target="_blank">reviews.llvm.org/p/TIFitis</a>.</p>
+		</article>
+		<article class="special">
+			<h3>LLVM-Flang</h3>
+			<date>Sep 2022</date>
+			<br>
+			<p>Currently working on developing and adding language support, particulary for OpenMP to the llvm-flang driver
+				for Fortran. llvm-flang is the new MLIR based frontend for Fortran in LLVM. LLVM Phabricator: <a
+					href="https://reviews.llvm.org/p/TIFitis/" target="_blank">reviews.llvm.org/p/TIFitis</a>.</p>
+		</article>
+		<article class="special">
+			<h3>Proteus: Polymorphic Compilation</h3>
+			<date>Jun 2021</date>
+			<br>
+			<p>Proteus is a compiler tool which uses polymorphic compilation and execution techniques to mitigate a class of
+				side channel attacks with minimal performance
+				overhead, compared to the other state-of-the-art solutions available. This work was done as part of my master's
+				thesis project.</p>
+		</article>
+		<article class="special">
+			<h3>BPI Enhancements</h3>
+			<a href="https://github.com/TIFitis/BPI--llvm" target="_blank" class="icon projects fa-github"><span
+					class="label">GitHub</span></a>
+			<date>Apr 2020</date>
+			<br>
+			<p>Proposed and implemented improvements to the Branch Probability Information
+				pass in LLVM to allow better static profiling leading to speed-up of up to 1.07x, as
+				part of the course project for Advanced Compiler Optimizations - CS6240.</br>
+				Accepted as a <a href="http://llvm.org/devmtg/2020-04/talks.html#Poster_89" target="_blank">poster in
+					EuroLLVM-20</a> held at Paris, France.</p>
+		</article>
+		<article class="special">
+			<h3>Loop Acceleration</h3>
+			<a href="https://github.com/TIFitis/loop_acceleration" target="_blank" class="icon projects fa-github"><span
+					class="label">GitHub</span></a>
+			<date>Oct 2019</date>
+			<br>
+			<p>Added a loop acceleration module to the Pinaka verifier for quick detection of counterexamples in loops
+				simulating polynomial functions. Pinaka is developed by IITH Software Verifcation Group which won the
+				third-fastest verifier position in SV-COMP’20
+				Floats sub-category, amongst other positions and was the only entry from Indian
+				academia.</br>
+				Appreciated by the Dept. of CSE for this work <a
+					href="https://cse.iith.ac.in/news/2019-12-31-Pinaka-at-SVCOMP-2020-Eti-Chaudhary-and-Saurabh-Joshi.html"
+					target="_blank">here</a>.</p>
+		</article>
+		<article class="special">
+			<h3>LLVM2GOTO</h3>
+			<a href="https://github.com/TIFitis/llvm2goto" target="_blank" class="icon projects fa-github"><span
+					class="label">GitHub</span></a>
+			<date>Sep 2019</date>
+			<br>
+			<p>A tool to translate LLVM IR to CBMC-GOTO. LLVM supports multiple
+				front-ends like C, C++, FORTRAN, Swift, etc., which get converted to LLVM-IR. CBMC
+				is a tool to verify programs which has its own GOTO IR. Our tool translates LLVM-IR
+				to GOTO IR, allowing us to potentially verify all the languages that have a front-end in LLVM, and also verify
+				programs post LLVM optimizations.</p>
+		</article>
+		<article class="special">
+			<h3>COOL Compiler</h3>
+			<date>Aug 2019</date>
+			<br>
+			<p>Designed and implemented a compiler for the COOL language to generate LLVM IR
+				as part of the course project for Advanced Compiler Design - CS CS6240.</p>
+		</article>
+		<article class="special">
+			<h3>SAT Solvers</h3>
+			<a href="https://github.com/TIFitis/constraint-programming" target="_blank" class="icon projects fa-github"><span
+					class="label">GitHub</span></a>
+			<date>Mar 2019</date>
+			<br>
+			<p>Implemented DPLL SAT Solver with MOMS heuristics, CDCL SAT Solver with Lazy Datastructure and Watch Literals,
+				MaxSAT with Totalizer encoding and an Incomplete SAT Solver based on Break-only-poly algorithm and WalkSAT. As
+				part of the course project for Constraint Programming - CS6483.</p>
+		</article>
+		<article class="special">
+			<h3>Hybrid Mutual Exclusion in Distributed Systems</h3>
+			<a href="https://github.com/TIFitis/Distributed-Computing" target="_blank" class="icon projects fa-github"><span
+					class="label">GitHub</span></a>
+			<date>Nov 2018</date>
+			<br>
+			<p>An efficient implementation of a hybrid mutual exclusion algorithm for distributed systems by combining
+				Raymond’s and Maekawa’s algorithms by multiplexing
+				between them when communicating within clusters and across clusters, based on
+				load, latency and throughput. As part of the course project for Distributed Computing - CS5320.</p>
+		</article>
+		<article class="special">
+			<h3>Thin Slicing in GOTO</h3>
+			<date>Nov 2018</date>
+			<br>
+			<p>Implemented thin-slicing in CBMC-GOTO. Slicing is a beneficial tool in debugging large programs, by only
+				presenting the relevant sections of code, allowing the programmer to focus and debug more efficiently. As part
+				of the course project for Compiler Engineering - CS6383.</p>
+		</article>
+		<article class="special">
+			<h3>Bitcoin Wallet</h3>
+			<a href="https://github.com/TIFitis/BTC-Project" target="_blank" class="icon projects fa-github"><span
+					class="label">GitHub</span></a>
+			<date>Oct 2018</date>
+			<br>
+			<p>Created a BTC wallet application which can create and manage BTC addresses,
+				and also handle transactions with support for both single and multisig authorization. This was done as part of
+				the course project for Blockchain-Theory & Practice -
+				CS5543.</p>
+		</article>
+		<article class="special">
+			<h3>Game - A Lost Tale</h3>
+			<date>Feb 2017</date>
+			<br>
+			<p>Developed a 3D visual game in Unity-Game engine using Blender with 3d modelling, animation, world design,
+				lighting and particle systems. A video demo of the game is
+				available <a href="https://www.youtube.com/watch?v=ONhRfq1dVyw" target="_blank">here</a>. As part of a summer
+				project during bachelor's.</p>
+		</article>
+	</div>
+	<div id="my-courses" class="special narrow">
+		<table class="table">
+			<tr>
+				<td>CS6410</td>
+				<td>Software Verification</td>
+			</tr>
+			<tr>
+				<td>CS6250</td>
+				<td>Advanced Compiler Optimizations</td>
+			</tr>
+			<tr>
+				<td>CS6483</td>
+				<td>Constraint Programming</td>
+			</tr>
+			<tr>
+				<td>CS5260</td>
+				<td>Compiler Optimizations</td>
+			</tr>
+			<tr>
+				<td>CS5320</td>
+				<td>Distributed Computing</td>
+			</tr>
+			<tr>
+				<td>CS6383</td>
+				<td>Introduction to Compiler Engineering</td>
+			</tr>
+			<tr>
+				<td>CS5543</td>
+				<td>The Blockchain: Theory and Practice</td>
+			</tr>
+			<tr>
+				<td> CS5453</td>
+				<td>Internet of Things</td>
+			</tr>
+		</table>
+	</div>
+	<div id="simba-pic" class="special hover">
+		<table class="table">
+			<tr>
+				<td><a class="image"><img src="https://source.unsplash.com/UPIdbdqsSas/4000x4000"
+							style="height: 100%; width: 100%; object-fit: contain" alt="" data-position="center center" /></td>
+			</tr>
+		</table>
+	</div>
+	<!-- Sidebar -->
+	<section id="sidebar">
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><a href="#intro">Welcome</a></li>
+					<li><a href="#one">About Me</a></li>
+					<li><a href="#two">My Skills</a></li>
+					<li><a href="#three">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+	<!-- Wrapper -->
+	<div id="wrapper">
 
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<h1>Akash Banerjee</h1>
-							<p>Compiler Engineer at <a href="https://www.amd.com/en" target="_blank">AMD</a>. <a href="https://cse.iith.ac.in" target="_blank">CSE</a> @ <a href="https://iith.ac.in" target="_blank">IIT Hyderabad</a> Alumnus.
-                            </p>
-						</div>
-					</section>
+		<!-- Intro -->
+		<section id="intro" class="wrapper style1 fullscreen fade-up">
+			<div class="inner">
+				<h1>Akash Banerjee</h1>
+				<p>Compiler Engineer at <a href="https://www.amd.com/en" target="_blank">AMD</a>. <a
+						href="https://cse.iith.ac.in" target="_blank">CSE</a> @ <a href="https://iith.ac.in" target="_blank">IIT
+						Hyderabad</a> Alumnus.
+				</p>
+			</div>
+		</section>
 
-				<!-- One -->
-					<section id="one" class="wrapper style2 spotlights">
-						<section>
-							<a class="image"><img src="images/akash.jpg" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>About Me</h2>
-									<p>
-                                        I'm a Compiler Engineer at AMD, UK. I'm part of the compiler developement team for The Frontier SuperComputer project where I work on llvm-flang and GPU Target Code Generation in OpenMP.
-                                    </p>
-									<p>
-                                        My interests lie in Compilers, Formal Verification, Program Analysis and SAT Solvers.
-                                        I've attained my master's in Computer Science Engineering under the guidance of <a href="https://sbjoshi.github.io/" target="_blank">Prof. Saurabh Joshi</a> in the field of Software Verification and applications of Formal Methods in Computer Security. In this time I have also worked under <a href="https://iith.ac.in/~ramakrishna/" target="_blank">Prof. Ramakrishna Upadrasta</a> in improving Compiler Optimizations through better profiling.
-                                    </p>
-									<p>
-									If I'm not coding - I'm usually losing MMR in DOTA2, staring at my fish tanks or giving pats to <a onmouseover="show_simba()" onmouseout="hide_all()">Simba</a> (Yes, he's a good boy). Also <a href="https://unsplash.com/@tifitis" target="_blank">learning to use a camera</a> :)
-                                    </p>
-									<p>
-									Don't Panic!
-                                    </p>
-                                    <!--
+		<!-- One -->
+		<section id="one" class="wrapper style2 spotlights">
+			<section>
+				<a class="image"><img src="images/akash.jpg" alt="" data-position="center center" /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>About Me</h2>
+						<p>
+							I'm a Compiler Engineer at AMD, UK. I'm part of the compiler developement team for the Frontier
+							supercomputing project where I work on the new llvm-flang driver for Fortran as well as device code
+							offloading for the OpenMP dialect in MLIR.
+						</p>
+						<p>
+							My interests lie in Compilers, Program Analysis, Formal Verification and SAT Solvers.
+							I've attained my master's in Computer Science & Engineering under the guidance of <a
+								href="https://sbjoshi.github.io/" target="_blank">Prof. Saurabh Joshi</a> in the field of Software
+							Verification and applications of Formal Methods in Computer Security. During this time I have also worked
+							under <a href="https://iith.ac.in/~ramakrishna/" target="_blank">Prof. Ramakrishna Upadrasta</a> in
+							improving Compiler Optimizations through better profiling.
+						</p>
+						<p>
+							If I'm not coding, I'm usually losing games in DOTA2, staring at my fish tanks or giving pats to <a
+								onmouseover="show_simba()" onmouseout="hide_all()">Simba</a> (OTRB). Also <a
+								href="https://unsplash.com/@tifitis" target="_blank">learning to use a camera</a> :)
+						</p>
+						<p>
+							Don't Panic!
+						</p>
+						<!--
 									<ul class="actions">
 										<li><a href="generic.html" class="button">Learn more</a></li>
 									</ul>
                                     -->
-								</div>
-							</div>
-						</section>
-					</section>
+					</div>
+				</div>
+			</section>
+		</section>
 
-				<!-- Two -->
-					<section id="two" class="wrapper style3 fade-up">
-						<div class="inner">
-							<h2>What am I good at?</h2>
-                            <!--
+		<!-- Two -->
+		<section id="two" class="wrapper style3 fade-up">
+			<div class="inner">
+				<h2>What am I good at?</h2>
+				<!--
 							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
                             -->
-							<div class="features">
-								<section>
-									<span class="icon solid major fa-code"></span>
-									<h3>Programming</h3>
-									<p>Skilled in C, C++ and able to adapt quickly to new languages. Languages I have used over the years include Rust, Python, JS, C#.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-cogs"></span>
-									<h3>Frameworks</h3>
-									<p>Deep knowledge and understanding of the MLIR and LLVM Compiler Infrastructure and CProver Verification Framework.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-cog"></span>
-									<h3>Tools</h3>
-									<p>Git, GDB, LLDB, Eclipse, <span class="texhtml" style="font-family:'CMU Serif', cmr10, LMRoman10-Regular, 'Times New Roman', 'Nimbus Roman No9 L', Times, serif">L<span style="text-transform:uppercase;font-size:70%;margin-left:-0.36em;vertical-align:0.3em;line-height:0;margin-right:-0.15em">a</span>T<span style="text-transform:uppercase;margin-left:-0.1667em;vertical-align:-0.5ex;line-height:0;margin-right:-0.125em">e</span>X</span>.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-terminal"></span>
-									<h3>Systems</h3>
-									<p>Linux System Administration, and Server Deployment & Maintenance.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-feather"></span>
-									<h3>Design Tools</h3>
-									<p>I have also worked with design tools such as Blender, ZBrush, Unity and Photoshop.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-book"></span>
-							        <ul class="actions fit">
-							            <li><button onclick="show_courses()" class="button" style="font-size: .75em;">Courses</button></li>
-							        </ul>
-							        <ul class="actions fit">
-							            <li><button onclick="show_projects()" class="button" style="font-size: .75em;">Projects</button></li>
-							        </ul>
-								</section>
-							</div>
-							<ul class="actions special">
-								<li><a href="Akash_Banerjee_CV.pdf" class="button" target="_blank" style="font-size: .75em;">My CV</a></li>
-							</ul>
-						</div>
+				<div class="features">
+					<section>
+						<span class="icon solid major fa-code"></span>
+						<h3>Programming</h3>
+						<p>Skilled in C, C++ with ability to adapt quickly to new languages. Other languages I have used over the
+							years include Java, Rust, Python, JS, C#.</p>
 					</section>
-
-				<!-- Three -->
-					<section id="three" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Get in touch</h2>
-							<div class="split style1">
-								<section>
-									<form method="POST" action="https://app.99inbound.com/api/e/6-Umg2io" target="_blank">
-										<div class="fields">
-											<div class="field half">
-												<label for="name">Name</label>
-												<input type="text" name="name" id="name" required>
-											</div>
-											<div class="field half">
-												<label for="email">Email</label>
-												<input type="email" name="email" id="email" required>
-											</div>
-											<div class="field">
-												<label for="message">Message</label>
-												<textarea name="message" id="message" rows="5"></textarea>
-											</div>
-										</div>
-										<div style="position: absolute; left: -5000px;">
-											  <input type="checkbox" name="stellar_sunshine_striped_wolf_spider" value="1" tabindex="-1" autocomplete="no">
-										</div>
-										<ul class="actions">
-											<li><button class="button">Send Message</button></li>
-										</ul>
-									</form>
-								</section>
-								<section>
-									<ul class="contact">
-										<li>
-											<h3>Address</h3>
-											<span>Regus – Midsummer Court<br />
-											Milton Keynes MK9 2UB<br />
-											England, United Kingdom</span>
-										</li>
-										<li>
-											<h3>Email</h3>
-											<a href="mailto: akash@akashb.me" target="_blank">akash@akashb.me</a>
-										</li>
-										<li>
-											<h3>Social</h3>
-											<ul class="icons">
-												<li><a href="https://twitter.com/akashbanerjeeab" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-												<li><a href="https://github.com/TIFitis" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-												<li><a href="https://www.linkedin.com/in/akashbanerjeeab" target="_blank" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-											</ul>
-										</li>
-									</ul>
-								</section>
-							</div>
-						</div>
+					<section>
+						<span class="icon solid major fa-cogs"></span>
+						<h3>Frameworks</h3>
+						<p>Deep knowledge and understanding of the MLIR and LLVM compiler infrastructure, and CProver verification
+							framework.</p>
 					</section>
-
-			</div>
-
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Akash Banerjee 2022</li><li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
-					</ul>
+					<section>
+						<span class="icon solid major fa-cog"></span>
+						<h3>Tools</h3>
+						<p>Git, GDB, LLDB, Eclipse, <span class="texhtml"
+								style="font-family:'CMU Serif', cmr10, LMRoman10-Regular, 'Times New Roman', 'Nimbus Roman No9 L', Times, serif">L<span
+									style="text-transform:uppercase;font-size:70%;margin-left:-0.36em;vertical-align:0.3em;line-height:0;margin-right:-0.15em">a</span>T<span
+									style="text-transform:uppercase;margin-left:-0.1667em;vertical-align:-0.5ex;line-height:0;margin-right:-0.125em">e</span>X</span>.
+						</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-terminal"></span>
+						<h3>Systems</h3>
+						<p>Linux System Administration, and Server Deployment & Maintenance.</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-feather"></span>
+						<h3>Design Tools</h3>
+						<p>I have also worked with design tools such as Blender, ZBrush, Unity and Photoshop.</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-book"></span>
+						<ul class="actions fit">
+							<li><button onclick="show_courses()" class="button" style="font-size: .75em;">Courses</button></li>
+						</ul>
+						<ul class="actions fit">
+							<li><button onclick="show_projects()" class="button" style="font-size: .75em;">Projects</button></li>
+						</ul>
+					</section>
 				</div>
-			</footer>
+				<ul class="actions special">
+					<li><a href="Akash_Banerjee_CV.pdf" class="button" target="_blank" style="font-size: .75em;">My CV</a></li>
+				</ul>
+			</div>
+		</section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-            <script src="assets/js/show.courses.js"></script>
+		<!-- Three -->
+		<section id="three" class="wrapper style1 fade-up">
+			<div class="inner">
+				<h2>Get in touch</h2>
+				<div class="split style1">
+					<section>
+						<form method="POST" action="https://app.99inbound.com/api/e/6-Umg2io" target="_blank">
+							<div class="fields">
+								<div class="field half">
+									<label for="name">Name</label>
+									<input type="text" name="name" id="name" required>
+								</div>
+								<div class="field half">
+									<label for="email">Email</label>
+									<input type="email" name="email" id="email" required>
+								</div>
+								<div class="field">
+									<label for="message">Message</label>
+									<textarea name="message" id="message" rows="5"></textarea>
+								</div>
+							</div>
+							<div style="position: absolute; left: -5000px;">
+								<input type="checkbox" name="stellar_sunshine_striped_wolf_spider" value="1" tabindex="-1"
+									autocomplete="no">
+							</div>
+							<ul class="actions">
+								<li><button class="button">Send Message</button></li>
+							</ul>
+						</form>
+					</section>
+					<section>
+						<ul class="contact">
+							<li>
+								<h3>Address</h3>
+								<span>Regus – Midsummer Court<br />
+									Milton Keynes MK9 2UB<br />
+									England, United Kingdom</span>
+							</li>
+							<li>
+								<h3>Email</h3>
+								<a href="mailto: akash@akashb.me" target="_blank">akash@akashb.me</a>
+							</li>
+							<li>
+								<h3>Social</h3>
+								<ul class="icons">
+									<li><a href="https://twitter.com/akashbanerjeeab" target="_blank" class="icon brands fa-twitter"><span
+												class="label">Twitter</span></a></li>
+									<li><a href="https://github.com/TIFitis" target="_blank" class="icon brands fa-github"><span
+												class="label">GitHub</span></a></li>
+									<li><a href="https://www.linkedin.com/in/akashbanerjeeab" target="_blank"
+											class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+				</div>
+			</div>
+		</section>
 
-	</body>
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer" class="wrapper style1-alt">
+		<div class="inner">
+			<ul class="menu">
+				<li>&copy; Akash Banerjee 2022</li>
+				<li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/show.courses.js"></script>
+
+</body>
+
 </html>
