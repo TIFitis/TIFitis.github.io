@@ -3035,7 +3035,7 @@ div.special.hover {
 }
 
 div.special.narrow {
-	width: 50%;
+	width: max-content;
 }
 
 div.special::-webkit-scrollbar {
