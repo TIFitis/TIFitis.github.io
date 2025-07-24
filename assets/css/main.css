@@ -95,6 +95,93 @@ video {
 	vertical-align: baseline;
 }
 
+/* Apple Liquid Glass inspired theme */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.55);
+    --glass-border: rgba(255, 255, 255, 0.35);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    --accent-color: #007aff;
+}
+
+body {
+    background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+    color: #1d1d1f;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Glass cards */
+.wrapper.style1,
+.wrapper.style2,
+.wrapper.style3,
+.wrapper.style1-alt,
+.wrapper.style2-alt,
+.wrapper.style3-alt {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    color: inherit;
+    border-radius: 1rem;
+}
+
+#sidebar {
+    background: rgba(255, 255, 255, 0.4);
+    border-right: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+}
+
+#sidebar nav a {
+    color: #1d1d1f;
+}
+
+#sidebar nav a.active {
+    color: var(--accent-color);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+.button {
+    border-radius: 0.75em;
+    border-color: #ccc !important;
+    background: rgba(255, 255, 255, 0.3);
+    color: #1d1d1f !important;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+body.is-preload .wrapper.fade-up > .inner {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.wrapper.fade-up > .inner {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+div.bg {
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+}
+
+div.special {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(15px) saturate(160%);
+    -webkit-backdrop-filter: blur(15px) saturate(160%);
+}
+
 article,
 aside,
 details,
