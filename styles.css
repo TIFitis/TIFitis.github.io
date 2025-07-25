@@ -565,9 +565,7 @@ section h2 {
   padding: 2rem 1rem;
   font-size: 0.8rem;
   color: var(--text-muted);
-  background: var(--card-bg);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  margin-top: auto;
 }
 
 /* Fade in animation using IntersectionObserver. Elements with class
@@ -594,6 +592,10 @@ section h2 {
 
 .shadow-fade.visible {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-fade.visible:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 600px) {
