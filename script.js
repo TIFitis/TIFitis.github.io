@@ -24,6 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.fade-in').forEach(el => {
     observer.observe(el);
   });
+
+  // Update background offset for subtle parallax effect.
+  const updateBgOffset = () => {
+    const offset = window.scrollY * -0.1;
+    document.body.style.setProperty('--bg-offset', `${offset}px`);
+  };
+  window.addEventListener('scroll', updateBgOffset);
+  updateBgOffset();
 });
 
 /**
