@@ -380,7 +380,7 @@ section h2 {
 .about {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding-left: 1rem;
   padding-right: 1rem;
