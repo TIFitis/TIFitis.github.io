@@ -379,6 +379,7 @@ section h2 {
 
 .about {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-left: 1rem;
