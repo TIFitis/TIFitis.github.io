@@ -55,6 +55,7 @@ body {
   position: fixed;
   inset: 0;
   overflow: hidden;
+  z-index: 1;
 }
 
 .panel {
@@ -106,7 +107,7 @@ body::after {
   filter: blur(100px) saturate(120%);
   opacity: 0.6;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
   animation: flowBackground 60s ease-in-out infinite alternate;
 }
 
@@ -132,7 +133,7 @@ body.bg-pulse::after {
     transform: translate3d(calc(var(--bg-offset)), 0, 0) rotate(0deg) scale(1);
   }
   50% {
-    transform: translate3d(calc(var(--bg-offset) - 20px), -10px, 0)
+    transform: translate3d(calc(var(--bg-offset) - 80px), -40px, 0)
       rotate(10deg) scale(1.1);
   }
   100% {
@@ -146,7 +147,7 @@ body.bg-pulse::after {
       scale(1);
   }
   50% {
-    transform: translate3d(calc(var(--bg-offset) * -1 + 20px), 10px, 0)
+    transform: translate3d(calc(var(--bg-offset) * -1 + 80px), 40px, 0)
       rotate(-10deg) scale(1.05);
   }
   100% {
@@ -345,6 +346,7 @@ section h2 {
 .about {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -539,8 +541,25 @@ section h2 {
 }
 
 @media (max-width: 600px) {
+  .navbar {
+    top: 0;
+    bottom: 0;
+    width: 70px;
+    height: 100vh;
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+  .navbar nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
   .navbar nav a {
-    margin-left: 1rem;
+    margin: 0 0 1rem;
+  }
+  .sections {
+    left: 70px;
+    width: calc(100% - 70px);
   }
   .hero h1 {
     font-size: 2.5rem;
