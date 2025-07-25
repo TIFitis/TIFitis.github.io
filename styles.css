@@ -56,7 +56,7 @@ body {
   overflow-x: hidden;
   line-height: 1.6;
   position: relative;
-  --bg-offset: 0px;
+  --bg-scroll: 0px;
   height: 100vh;
   touch-action: pan-y;
   overscroll-behavior-y: contain;
@@ -95,101 +95,101 @@ body::before,
 body::after {
   content: "";
   position: fixed;
-  top: -30%;
-  left: -30%;
-  width: 160%;
-  height: 160%;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
   background:
     radial-gradient(
-      ellipse at 20% 30%,
-      rgba(87, 163, 255, 0.7) 0%,
+      circle at 30% 30%,
+      rgba(189, 224, 255, 0.6) 0%,
       transparent 60%
     ),
     radial-gradient(
-      ellipse at 80% 40%,
-      rgba(137, 206, 255, 0.7) 0%,
+      circle at 70% 60%,
+      rgba(210, 235, 255, 0.6) 0%,
       transparent 60%
     ),
     radial-gradient(
-      ellipse at 50% 80%,
-      rgba(255, 255, 255, 0.9) 0%,
+      circle at 50% 80%,
+      rgba(255, 255, 255, 0.8) 0%,
       transparent 55%
     );
   background-repeat: no-repeat;
-  filter: blur(100px) saturate(120%);
+  filter: blur(120px);
   opacity: 0.8;
   pointer-events: none;
   z-index: 0;
-  animation: flowBackground 60s ease-in-out infinite alternate;
+  transform: translate3d(0, var(--bg-scroll), 0);
+}
+
+body::before {
+  animation: floatOne 25s ease-in-out infinite alternate;
 }
 
 body::after {
-  animation: flowBackgroundReverse 80s ease-in-out infinite alternate;
-  opacity: 0.4;
+  animation: floatTwo 35s ease-in-out infinite alternate;
+  opacity: 0.5;
 }
 
 body.bg-pulse::before {
   animation:
-    pulseBackground 0.7s ease-out 1,
-    flowBackground 60s ease-in-out infinite alternate;
+    pulseOne 0.7s ease-out 1,
+    floatOne 25s ease-in-out infinite alternate;
 }
 
 body.bg-pulse::after {
   animation:
-    pulseBackgroundReverse 0.7s ease-out 1,
-    flowBackgroundReverse 80s ease-in-out infinite alternate;
+    pulseTwo 0.7s ease-out 1,
+    floatTwo 35s ease-in-out infinite alternate;
 }
 
-@keyframes flowBackground {
+@keyframes floatOne {
   0% {
-    transform: translate3d(calc(var(--bg-offset)), 0, 0) rotate(0deg) scale(1);
+    transform: translate3d(-20px, calc(var(--bg-scroll)), 0) scale(1);
   }
   50% {
-    transform: translate3d(calc(var(--bg-offset) - 80px), -40px, 0)
-      rotate(10deg) scale(1.1);
+    transform: translate3d(20px, calc(var(--bg-scroll) - 60px), 0) scale(1.1);
   }
   100% {
-    transform: translate3d(calc(var(--bg-offset)), 0, 0) rotate(0deg) scale(1);
+    transform: translate3d(-20px, calc(var(--bg-scroll)), 0) scale(1);
   }
 }
 
-@keyframes flowBackgroundReverse {
+@keyframes floatTwo {
   0% {
-    transform: translate3d(calc(var(--bg-offset) * -1), 0, 0) rotate(0deg)
-      scale(1);
+    transform: translate3d(20px, calc(var(--bg-scroll) * -1), 0) scale(1);
   }
   50% {
-    transform: translate3d(calc(var(--bg-offset) * -1 + 80px), 40px, 0)
-      rotate(-10deg) scale(1.05);
-  }
-  100% {
-    transform: translate3d(calc(var(--bg-offset) * -1), 0, 0) rotate(0deg)
-      scale(1);
-  }
-}
-
-@keyframes pulseBackground {
-  0% {
-    transform: translate3d(calc(var(--bg-offset)), 0, 0) scale(1);
-  }
-  40% {
-    transform: translate3d(calc(var(--bg-offset) - 40px), -10px, 0) scale(1.1);
-  }
-  100% {
-    transform: translate3d(calc(var(--bg-offset)), 0, 0) scale(1);
-  }
-}
-
-@keyframes pulseBackgroundReverse {
-  0% {
-    transform: translate3d(calc(var(--bg-offset) * -1), 0, 0) scale(1);
-  }
-  40% {
-    transform: translate3d(calc(var(--bg-offset) * -1 + 40px), 10px, 0)
+    transform: translate3d(-20px, calc(var(--bg-scroll) * -1 - 60px), 0)
       scale(1.05);
   }
   100% {
-    transform: translate3d(calc(var(--bg-offset) * -1), 0, 0) scale(1);
+    transform: translate3d(20px, calc(var(--bg-scroll) * -1), 0) scale(1);
+  }
+}
+
+@keyframes pulseOne {
+  0% {
+    transform: translate3d(0, calc(var(--bg-scroll)), 0) scale(1);
+  }
+  40% {
+    transform: translate3d(0, calc(var(--bg-scroll) - 30px), 0) scale(1.1);
+  }
+  100% {
+    transform: translate3d(0, calc(var(--bg-scroll)), 0) scale(1);
+  }
+}
+
+@keyframes pulseTwo {
+  0% {
+    transform: translate3d(0, calc(var(--bg-scroll) * -1), 0) scale(1);
+  }
+  40% {
+    transform: translate3d(0, calc(var(--bg-scroll) * -1 - 30px), 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(0, calc(var(--bg-scroll) * -1), 0) scale(1);
   }
 }
 
@@ -255,6 +255,15 @@ body.bg-pulse::after {
   align-items: center;
   text-align: center;
   padding: 6rem 1rem 4rem; /* top padding accounts for nav height */
+}
+
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
 }
 
 .hero h1 {
@@ -556,6 +565,14 @@ section h2 {
   padding: 2rem 1rem;
   font-size: 0.8rem;
   color: var(--text-muted);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  z-index: 1000;
 }
 
 /* Fade in animation using IntersectionObserver. Elements with class
