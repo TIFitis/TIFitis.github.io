@@ -28,9 +28,45 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
 
   const CROSSFADE_DISTANCE = 0.25; // amount of scroll to transition between sections
-  const FOCUS_PADDING = 0.15; // dead zone before crossfading starts
+  const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  const FOCUS_PADDING = isTouch ? 0.08 : 0.2; // rubberband zone
   let autoScrolling = false;
   let scrollTimeout;
+
+  panels.forEach((panel) => {
+    panel.addEventListener(
+      "wheel",
+      (e) => {
+        const atTop = panel.scrollTop === 0;
+        const atBottom =
+          panel.scrollHeight - panel.scrollTop <= panel.clientHeight + 1;
+        if ((e.deltaY < 0 && atTop) || (e.deltaY > 0 && atBottom)) {
+          e.preventDefault();
+          window.scrollBy({ top: e.deltaY });
+        }
+      },
+      { passive: false },
+    );
+
+    let startY = 0;
+    panel.addEventListener("touchstart", (e) => {
+      startY = e.touches[0].clientY;
+    });
+    panel.addEventListener(
+      "touchmove",
+      (e) => {
+        const deltaY = startY - e.touches[0].clientY;
+        const atTop = panel.scrollTop === 0;
+        const atBottom =
+          panel.scrollHeight - panel.scrollTop <= panel.clientHeight + 1;
+        if ((deltaY < 0 && atTop) || (deltaY > 0 && atBottom)) {
+          window.scrollBy({ top: deltaY });
+          e.preventDefault();
+        }
+      },
+      { passive: false },
+    );
+  });
 
   const updatePanels = () => {
     const scrollPos = window.scrollY;
