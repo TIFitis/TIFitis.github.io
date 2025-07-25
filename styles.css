@@ -565,14 +565,9 @@ section h2 {
   padding: 2rem 1rem;
   font-size: 0.8rem;
   color: var(--text-muted);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   background: var(--card-bg);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  z-index: 1000;
 }
 
 /* Fade in animation using IntersectionObserver. Elements with class
@@ -589,6 +584,16 @@ section h2 {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Panels with shadow-fade start with no shadow and fade it in when visible */
+.shadow-fade {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0);
+  transition: box-shadow 0.4s ease;
+}
+
+.shadow-fade.visible {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 600px) {
