@@ -283,6 +283,8 @@ body.bg-pulse::after {
   font-size: 1rem;
   background: var(--accent-color);
   color: #fff;
+  text-decoration: none;
+  display: inline-block;
   border: none;
   border-radius: 30px;
   cursor: pointer;
