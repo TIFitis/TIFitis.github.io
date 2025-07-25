@@ -11,7 +11,7 @@
  */
 
 :root {
-/* Light base colour with a subtle blue tint. */
+  /* Light base colour with a subtle blue tint. */
   --background-color: #f5f7fa;
   /* Glass panel colours with higher opacity for readability on light backgrounds. */
   --card-bg: rgba(255, 255, 255, 0.6);
@@ -38,7 +38,7 @@ body {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   overflow-x: hidden;
@@ -61,13 +61,17 @@ body {
   overflow-y: auto;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.8s ease;
+  transform: scale(0.95);
+  transition:
+    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   padding-top: 6rem;
 }
 
 .panel:first-of-type {
   opacity: 1;
   pointer-events: auto;
+  transform: scale(1);
 }
 
 /* Glow background to mimic liquid-like ambience. */
@@ -80,9 +84,21 @@ body::after {
   width: 160%;
   height: 160%;
   background:
-    radial-gradient(ellipse at 20% 30%, rgba(87, 163, 255, 0.45) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 40%, rgba(137, 206, 255, 0.45) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 80%, rgba(255, 255, 255, 0.6) 0%, transparent 55%);
+    radial-gradient(
+      ellipse at 20% 30%,
+      rgba(87, 163, 255, 0.45) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 80% 40%,
+      rgba(137, 206, 255, 0.45) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 50% 80%,
+      rgba(255, 255, 255, 0.6) 0%,
+      transparent 55%
+    );
   background-repeat: no-repeat;
   filter: blur(100px) saturate(120%);
   opacity: 0.6;
@@ -97,15 +113,31 @@ body::after {
 }
 
 @keyframes flowBackground {
-  0% { transform: translate3d(calc(var(--bg-offset)), 0, 0) rotate(0deg) scale(1); }
-  50% { transform: translate3d(calc(var(--bg-offset) - 20px), -10px, 0) rotate(10deg) scale(1.1); }
-  100% { transform: translate3d(calc(var(--bg-offset)), 0, 0) rotate(0deg) scale(1); }
+  0% {
+    transform: translate3d(calc(var(--bg-offset)), 0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(calc(var(--bg-offset) - 20px), -10px, 0)
+      rotate(10deg) scale(1.1);
+  }
+  100% {
+    transform: translate3d(calc(var(--bg-offset)), 0, 0) rotate(0deg) scale(1);
+  }
 }
 
 @keyframes flowBackgroundReverse {
-  0% { transform: translate3d(calc(var(--bg-offset) * -1), 0, 0) rotate(0deg) scale(1); }
-  50% { transform: translate3d(calc(var(--bg-offset) * -1 + 20px), 10px, 0) rotate(-10deg) scale(1.05); }
-  100% { transform: translate3d(calc(var(--bg-offset) * -1), 0, 0) rotate(0deg) scale(1); }
+  0% {
+    transform: translate3d(calc(var(--bg-offset) * -1), 0, 0) rotate(0deg)
+      scale(1);
+  }
+  50% {
+    transform: translate3d(calc(var(--bg-offset) * -1 + 20px), 10px, 0)
+      rotate(-10deg) scale(1.05);
+  }
+  100% {
+    transform: translate3d(calc(var(--bg-offset) * -1), 0, 0) rotate(0deg)
+      scale(1);
+  }
 }
 
 /* Navigation bar */
@@ -182,7 +214,10 @@ body::after {
   border-radius: 30px;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s;
 }
 
 .cta-button:hover {
@@ -219,7 +254,9 @@ section h2 {
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .project-card:hover {
@@ -321,7 +358,7 @@ section h2 {
 }
 
 .skill-category li::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0.5rem;
@@ -373,7 +410,9 @@ section h2 {
   font-size: 1rem;
   cursor: pointer;
   align-self: flex-end;
-  transition: background 0.3s, transform 0.3s;
+  transition:
+    background 0.3s,
+    transform 0.3s;
 }
 
 .contact-form button:hover {
@@ -435,7 +474,9 @@ section h2 {
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 .fade-in.visible {
