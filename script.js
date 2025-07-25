@@ -27,7 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
 
-  const CROSSFADE_DISTANCE = 0.3; // fraction of viewport height over which panels crossfade
+  const CROSSFADE_DISTANCE = 0.25; // amount of scroll to transition between sections
+  const FOCUS_PADDING = 0.15; // dead zone before crossfading starts
+  let autoScrolling = false;
+  let scrollTimeout;
 
   const updatePanels = () => {
     const scrollPos = window.scrollY;
@@ -35,7 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     panels.forEach((panel, i) => {
       const diff = i - pos;
-      const clamped = Math.min(Math.abs(diff) / CROSSFADE_DISTANCE, 1);
+      const absDiff = Math.abs(diff);
+      const offset = Math.max(absDiff - FOCUS_PADDING, 0);
+      const clamped = Math.min(offset / CROSSFADE_DISTANCE, 1);
       const opacity = 1 - clamped;
       const scale = 1 - clamped * 0.05;
       panel.style.opacity = opacity;
@@ -46,7 +51,25 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.setProperty("--bg-offset", `${scrollPos * -0.1}px`);
   };
 
-  window.addEventListener("scroll", updatePanels);
+  const onScroll = () => {
+    updatePanels();
+    clearTimeout(scrollTimeout);
+    if (!autoScrolling) {
+      scrollTimeout = setTimeout(() => {
+        const index = Math.round(window.scrollY / window.innerHeight);
+        autoScrolling = true;
+        window.scrollTo({
+          top: index * window.innerHeight,
+          behavior: "smooth",
+        });
+        setTimeout(() => {
+          autoScrolling = false;
+        }, 400);
+      }, 80);
+    }
+  };
+
+  window.addEventListener("scroll", onScroll);
   window.addEventListener("resize", updatePanels);
   updatePanels();
 });
