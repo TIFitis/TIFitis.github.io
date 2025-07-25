@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
       panel.style.pointerEvents = opacity > 0.1 ? "auto" : "none";
     });
 
-    document.body.style.setProperty("--bg-offset", `${scrollPos * -0.1}px`);
+    document.body.style.setProperty("--bg-offset", `${scrollPos * -0.15}px`);
   };
 
   const onScroll = () => {

@@ -102,17 +102,17 @@ body::after {
   background:
     radial-gradient(
       ellipse at 20% 30%,
-      rgba(87, 163, 255, 0.6) 0%,
+      rgba(87, 163, 255, 0.7) 0%,
       transparent 60%
     ),
     radial-gradient(
       ellipse at 80% 40%,
-      rgba(137, 206, 255, 0.6) 0%,
+      rgba(137, 206, 255, 0.7) 0%,
       transparent 60%
     ),
     radial-gradient(
       ellipse at 50% 80%,
-      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.9) 0%,
       transparent 55%
     );
   background-repeat: no-repeat;
@@ -333,7 +333,7 @@ section h2 {
   margin-bottom: 0.4rem;
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--accent-color);
 }
 
 .project-card small {
@@ -381,8 +381,16 @@ section h2 {
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
   max-width: 800px;
   width: 100%;
+}
+
+.about-panel:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .about-content p {
@@ -408,11 +416,14 @@ section h2 {
   border-radius: 20px;
   padding: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .skill-category:hover {
   transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .skill-category h3 {
@@ -578,16 +589,28 @@ section h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2rem;
+    justify-content: center;
+    flex: 1;
+    gap: 1rem;
+    margin-top: 0;
   }
   .navbar nav a {
-    margin: 0 0 1rem;
+    margin: 0;
   }
   .brand-full {
     display: none;
   }
   .brand-short {
-    display: inline;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+  }
+  .navbar .brand {
+    margin-bottom: 2rem;
   }
   .sections {
     left: 70px;
@@ -605,5 +628,8 @@ section h2 {
   .contact-info {
     flex-direction: column;
     gap: 2rem;
+  }
+  .about {
+    align-items: flex-start;
   }
 }
