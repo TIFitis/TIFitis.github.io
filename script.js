@@ -9,9 +9,20 @@
 
 let panels = [];
 
+function getViewportHeight() {
+  return window.visualViewport
+    ? window.visualViewport.height
+    : document.documentElement.clientHeight;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   panels = Array.from(document.querySelectorAll(".sections > .panel"));
-  document.body.style.height = `${panels.length * 100}vh`;
+
+  const setBodyHeight = () => {
+    document.body.style.height = `${panels.length * getViewportHeight()}px`;
+  };
+
+  setBodyHeight();
 
   const observer = new IntersectionObserver(
     (entries, obs) => {
@@ -79,8 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const updatePanels = () => {
+    const viewport = getViewportHeight();
     const scrollPos = window.scrollY;
-    const pos = scrollPos / window.innerHeight;
+    const pos = scrollPos / viewport;
 
     panels.forEach((panel, i) => {
       const diff = i - pos;
@@ -102,10 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
     clearTimeout(scrollTimeout);
     if (!autoScrolling) {
       scrollTimeout = setTimeout(() => {
-        const index = Math.round(window.scrollY / window.innerHeight);
+        const viewport = getViewportHeight();
+        const index = Math.round(window.scrollY / viewport);
         autoScrolling = true;
         window.scrollTo({
-          top: index * window.innerHeight,
+          top: index * viewport,
           behavior: "smooth",
         });
         triggerBackgroundPulse();
@@ -117,7 +130,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   window.addEventListener("scroll", onScroll);
-  window.addEventListener("resize", updatePanels);
+  window.addEventListener("resize", () => {
+    setBodyHeight();
+    updatePanels();
+  });
   updatePanels();
 });
 
@@ -128,7 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
 function scrollToSection(id) {
   const index = panels.findIndex((p) => p.id === id);
   if (index !== -1) {
-    window.scrollTo({ top: index * window.innerHeight, behavior: "smooth" });
+    const viewport = getViewportHeight();
+    window.scrollTo({ top: index * viewport, behavior: "smooth" });
     triggerBackgroundPulse();
   }
 }

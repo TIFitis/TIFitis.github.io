@@ -600,21 +600,23 @@ section h2 {
 
 @media (max-width: 600px) {
   .navbar {
-    top: 0;
-    bottom: 0;
-    width: 70px;
-    height: 100vh;
+    top: 1rem;
+    left: 1rem;
+    bottom: auto;
+    width: 60px;
+    height: auto;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
   .navbar nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    flex: 1;
+    justify-content: flex-start;
     gap: 1rem;
     margin-top: 0;
   }
@@ -634,11 +636,11 @@ section h2 {
     border-radius: 50%;
   }
   .navbar .brand {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
   .sections {
-    left: 70px;
-    width: calc(100% - 70px);
+    left: 0;
+    width: 100%;
   }
   .hero h1 {
     font-size: 2.5rem;
