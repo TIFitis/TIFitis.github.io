@@ -32,6 +32,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const FOCUS_PADDING = isTouch ? 0.08 : 0.2; // rubberband zone
   let autoScrolling = false;
   let scrollTimeout;
+  let pulseTimeout;
+
+  const triggerBackgroundPulse = () => {
+    document.body.classList.add("bg-pulse");
+    clearTimeout(pulseTimeout);
+    pulseTimeout = setTimeout(
+      () => document.body.classList.remove("bg-pulse"),
+      700,
+    );
+  };
 
   panels.forEach((panel) => {
     panel.addEventListener(
@@ -98,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
           top: index * window.innerHeight,
           behavior: "smooth",
         });
+        triggerBackgroundPulse();
         setTimeout(() => {
           autoScrolling = false;
         }, 400);
@@ -118,5 +129,6 @@ function scrollToSection(id) {
   const index = panels.findIndex((p) => p.id === id);
   if (index !== -1) {
     window.scrollTo({ top: index * window.innerHeight, behavior: "smooth" });
+    triggerBackgroundPulse();
   }
 }
