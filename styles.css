@@ -305,20 +305,20 @@ body.bg-pulse::after {
 .down-arrow {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
   bottom: 1.5rem;
-  display: block;
-  width: 24px;
-  height: 24px;
+  transform: translate(-50%, 0);
+  width: 28px;
+  height: 28px;
+  display: flex;
   color: var(--accent-color);
   opacity: 0.7;
   z-index: 5;
-  transition: opacity 0.3s, transform 0.3s;
+  animation: arrow-bounce 2s infinite;
+  transition: opacity 0.3s;
 }
 
 .down-arrow:hover {
   opacity: 1;
-  transform: translateY(4px);
 }
 
 .down-arrow svg {
@@ -333,6 +333,18 @@ body.bg-pulse::after {
 @media (min-width: 600px) {
   .hero .down-arrow {
     bottom: 3rem;
+  }
+}
+
+@keyframes arrow-bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translate(-50%, 0);
+  }
+  40% {
+    transform: translate(-50%, 6px);
+  }
+  60% {
+    transform: translate(-50%, 3px);
   }
 }
 

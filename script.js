@@ -22,11 +22,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateViewportHeight();
 
+  const createDownArrows = () => {
+    const arrowSvg =
+      '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>';
+
+    panels.forEach((panel, i) => {
+      if (i === panels.length - 1) return;
+      const nextId = panels[i + 1].id;
+      const link = document.createElement("a");
+      link.href = `#${nextId}`;
+      link.className = "down-arrow";
+      link.setAttribute("aria-label", "Next section");
+      link.innerHTML = arrowSvg;
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollToSection(nextId);
+      });
+      panel.appendChild(link);
+    });
+  };
+
   const setBodyHeight = () => {
     document.body.style.height = `${panels.length * viewportHeight}px`;
   };
 
   setBodyHeight();
+  createDownArrows();
 
   const observer = new IntersectionObserver(
     (entries, obs) => {
