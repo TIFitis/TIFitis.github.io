@@ -8,18 +8,22 @@
  */
 
 let panels = [];
+let viewportHeight;
+let currentIndex = 0;
 
-function getViewportHeight() {
-  return window.visualViewport
-    ? window.visualViewport.height
-    : document.documentElement.clientHeight;
+function updateViewportHeight() {
+  // Use the innerHeight at load time to avoid changes when the address bar
+  // hides on mobile, which can cause jumpy scrolling.
+  viewportHeight = window.innerHeight;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   panels = Array.from(document.querySelectorAll(".sections > .panel"));
 
+  updateViewportHeight();
+
   const setBodyHeight = () => {
-    document.body.style.height = `${panels.length * getViewportHeight()}px`;
+    document.body.style.height = `${panels.length * viewportHeight}px`;
   };
 
   setBodyHeight();
@@ -90,9 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const updatePanels = () => {
-    const viewport = getViewportHeight();
     const scrollPos = window.scrollY;
-    const pos = scrollPos / viewport;
+    const pos = scrollPos / viewportHeight;
 
     panels.forEach((panel, i) => {
       const diff = i - pos;
@@ -109,16 +112,21 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.setProperty("--bg-scroll", `${scrollPos * -0.2}px`);
   };
 
+
   const onScroll = () => {
     updatePanels();
     clearTimeout(scrollTimeout);
     if (!autoScrolling) {
       scrollTimeout = setTimeout(() => {
-        const viewport = getViewportHeight();
-        const index = Math.round(window.scrollY / viewport);
+        const rawIndex = Math.round(window.scrollY / viewportHeight);
+        if (Math.abs(rawIndex - currentIndex) > 1) {
+          currentIndex += Math.sign(rawIndex - currentIndex);
+        } else {
+          currentIndex = rawIndex;
+        }
         autoScrolling = true;
         window.scrollTo({
-          top: index * viewport,
+          top: currentIndex * viewportHeight,
           behavior: "smooth",
         });
         triggerBackgroundPulse();
@@ -131,21 +139,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", onScroll);
   window.addEventListener("resize", () => {
+    updateViewportHeight();
     setBodyHeight();
     updatePanels();
   });
   updatePanels();
+  window.scrollToSection = (id) => {
+    const index = panels.findIndex((p) => p.id === id);
+    if (index !== -1) {
+      currentIndex = index;
+      window.scrollTo({ top: index * viewportHeight, behavior: "smooth" });
+      triggerBackgroundPulse();
+    }
+  };
 });
-
-/**
- * Smoothly scroll to a section by its id.
- * @param {string} id The id of the element to scroll into view.
- */
-function scrollToSection(id) {
-  const index = panels.findIndex((p) => p.id === id);
-  if (index !== -1) {
-    const viewport = getViewportHeight();
-    window.scrollTo({ top: index * viewport, behavior: "smooth" });
-    triggerBackgroundPulse();
-  }
-}
