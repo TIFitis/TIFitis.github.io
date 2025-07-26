@@ -301,6 +301,40 @@ body.bg-pulse::after {
   background: var(--accent-color-hover);
 }
 
+/* Arrow linking to next section */
+.down-arrow {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 1.5rem;
+  display: block;
+  width: 24px;
+  height: 24px;
+  color: var(--accent-color);
+  opacity: 0.7;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.down-arrow:hover {
+  opacity: 1;
+  transform: translateY(4px);
+}
+
+.down-arrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero .down-arrow {
+  bottom: 2rem;
+}
+
+@media (min-width: 600px) {
+  .hero .down-arrow {
+    bottom: 3rem;
+  }
+}
+
 /* Global section styles */
 section {
   padding: 4rem 1rem;
@@ -625,6 +659,6 @@ section h2 {
     gap: 2rem;
   }
   .about {
-    align-items: flex-start;
+    align-items: center;
   }
 }
