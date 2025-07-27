@@ -23,6 +23,8 @@
   /* Text colours */
   --text-color: #1d1d1f;
   --text-muted: #555;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
 }
 
 * {
@@ -103,8 +105,14 @@ body::before {
   content: "";
   position: fixed;
   inset: -50% -50%;
-  background: linear-gradient(60deg, #dfe9f3, #f0f4ff, #cde5ff, #e0f2ff);
-  background-size: 200% 200%;
+  background:
+    radial-gradient(
+      circle at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.4),
+      transparent 60%
+    ),
+    linear-gradient(60deg, #dfe9f3, #f0f4ff, #cde5ff, #e0f2ff);
+  background-size: 100% 100%, 300% 300%;
   filter: blur(120px);
   opacity: 0.8;
   pointer-events: none;
@@ -275,6 +283,11 @@ body.bg-pulse::before {
 .down-arrow svg {
   width: 100%;
   height: 100%;
+}
+
+.down-arrow.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 @media (min-width: 600px) {

@@ -50,6 +50,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  let interactionTimeout;
+  const hideArrow = () => {
+    if (downArrow) {
+      downArrow.classList.add("hidden");
+    }
+  };
+  const showArrow = () => {
+    if (downArrow && downArrow.style.display !== "none") {
+      downArrow.classList.remove("hidden");
+    }
+  };
+  const scheduleArrowShow = () => {
+    clearTimeout(interactionTimeout);
+    interactionTimeout = setTimeout(showArrow, 3000);
+  };
+  const handleInteraction = (e) => {
+    if (downArrow && (e.target === downArrow || downArrow.contains(e.target))) {
+      return;
+    }
+    hideArrow();
+    scheduleArrowShow();
+  };
+
   const setBodyHeight = () => {
     document.body.style.height = `${panels.length * viewportHeight}px`;
   };
@@ -137,6 +160,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (t) interact(t.clientX, t.clientY);
   }, { passive: true });
 
+
+  ["scroll", "keydown", "touchstart"].forEach((evt) =>
+    window.addEventListener(evt, handleInteraction, { passive: true })
+  );
+
+  const root = document.documentElement;
+  window.addEventListener(
+    "mousemove",
+    (e) => {
+      root.style.setProperty("--mouse-x", `${e.clientX}px`);
+      root.style.setProperty("--mouse-y", `${e.clientY}px`);
+      handleInteraction(e);
+    },
+    { passive: true },
+  );
 
   const observer = new IntersectionObserver(
     (entries, obs) => {
