@@ -57,6 +57,86 @@ document.addEventListener("DOMContentLoaded", () => {
   setBodyHeight();
   createDownArrow();
   updateDownArrow();
+  const fluidCanvas = document.getElementById("fluid-canvas");
+  const fCtx = fluidCanvas.getContext("2d");
+  let cw, ch;
+  const blobs = [];
+  const BLOB_COUNT = 12;
+  const resizeCanvas = () => {
+    cw = fluidCanvas.width = window.innerWidth;
+    ch = fluidCanvas.height = window.innerHeight;
+  };
+  const initBlobs = () => {
+    blobs.length = 0;
+    for (let i = 0; i < BLOB_COUNT; i++) {
+      blobs.push({
+        x: Math.random() * cw,
+        y: Math.random() * ch,
+        vx: (Math.random() - 0.5) * 1.5,
+        vy: (Math.random() - 0.5) * 1.5,
+        r: 80 + Math.random() * 40,
+      });
+    }
+  };
+  const updateBlobs = () => {
+    for (const b of blobs) {
+      b.x += b.vx;
+      b.y += b.vy;
+      b.vx *= 0.98;
+      b.vy *= 0.98;
+      if (b.x < -b.r) b.x += cw + b.r * 2;
+      if (b.x > cw + b.r) b.x -= cw + b.r * 2;
+      if (b.y < -b.r) b.y += ch + b.r * 2;
+      if (b.y > ch + b.r) b.y -= ch + b.r * 2;
+    }
+  };
+  const drawBlobs = () => {
+    fCtx.clearRect(0, 0, cw, ch);
+    fCtx.globalCompositeOperation = "lighter";
+    for (const b of blobs) {
+      const grad = fCtx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+      grad.addColorStop(0, "rgba(180,200,255,0.6)");
+      grad.addColorStop(1, "rgba(180,200,255,0)");
+      fCtx.fillStyle = grad;
+      fCtx.beginPath();
+      fCtx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+      fCtx.fill();
+    }
+  };
+  const animateBlobs = () => {
+    updateBlobs();
+    drawBlobs();
+    requestAnimationFrame(animateBlobs);
+  };
+  resizeCanvas();
+  initBlobs();
+  animateBlobs();
+  window.addEventListener("resize", () => {
+    resizeCanvas();
+    initBlobs();
+  });
+  let lastScrollY = window.scrollY;
+  window.addEventListener("scroll", () => {
+    const delta = window.scrollY - lastScrollY;
+    blobs.forEach((b) => (b.vy += delta * 0.05));
+    lastScrollY = window.scrollY;
+  });
+  const interact = (x, y) => {
+    blobs.forEach((b) => {
+      const dx = b.x - x;
+      const dy = b.y - y;
+      const dist2 = dx * dx + dy * dy;
+      const force = 3000 / (dist2 + 10000);
+      b.vx += -dx * force;
+      b.vy += -dy * force;
+    });
+  };
+  window.addEventListener("mousemove", (e) => interact(e.clientX, e.clientY));
+  window.addEventListener("touchmove", (e) => {
+    const t = e.touches[0];
+    if (t) interact(t.clientX, t.clientY);
+  }, { passive: true });
+
 
   const observer = new IntersectionObserver(
     (entries, obs) => {
