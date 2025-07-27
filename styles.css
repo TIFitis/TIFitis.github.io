@@ -305,7 +305,7 @@ body.bg-pulse::after {
 .down-arrow {
   position: fixed;
   left: 50%;
-  bottom: 1.5rem;
+  bottom: 2rem;
   transform: translate(-50%, 0);
   width: 28px;
   height: 28px;
@@ -326,12 +326,8 @@ body.bg-pulse::after {
   height: 100%;
 }
 
-.hero .down-arrow {
-  bottom: 2rem;
-}
-
 @media (min-width: 600px) {
-  .hero .down-arrow {
+  .down-arrow {
     bottom: 3rem;
   }
 }

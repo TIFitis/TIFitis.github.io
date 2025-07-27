@@ -22,24 +22,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateViewportHeight();
 
-  const createDownArrows = () => {
+  let downArrow;
+  const createDownArrow = () => {
     const arrowSvg =
       '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>';
 
-    panels.forEach((panel, i) => {
-      if (i === panels.length - 1) return;
-      const nextId = panels[i + 1].id;
-      const link = document.createElement("a");
-      link.href = `#${nextId}`;
-      link.className = "down-arrow";
-      link.setAttribute("aria-label", "Next section");
-      link.innerHTML = arrowSvg;
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.scrollToSection(nextId);
-      });
-      panel.appendChild(link);
+    downArrow = document.createElement("a");
+    downArrow.className = "down-arrow";
+    downArrow.setAttribute("aria-label", "Next section");
+    downArrow.innerHTML = arrowSvg;
+    downArrow.addEventListener("click", (e) => {
+      e.preventDefault();
+      const nextIndex = Math.min(currentIndex + 1, panels.length - 1);
+      const nextId = panels[nextIndex].id;
+      window.scrollToSection(nextId);
     });
+    document.body.appendChild(downArrow);
+  };
+
+  const updateDownArrow = () => {
+    if (currentIndex >= panels.length - 1) {
+      downArrow.style.display = "none";
+    } else {
+      const nextId = panels[currentIndex + 1].id;
+      downArrow.href = `#${nextId}`;
+      downArrow.style.display = "flex";
+    }
   };
 
   const setBodyHeight = () => {
@@ -47,7 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   setBodyHeight();
-  createDownArrows();
+  createDownArrow();
+  updateDownArrow();
 
   const observer = new IntersectionObserver(
     (entries, obs) => {
@@ -145,6 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           currentIndex = rawIndex;
         }
+        updateDownArrow();
         autoScrolling = true;
         window.scrollTo({
           top: currentIndex * viewportHeight,
@@ -169,6 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const index = panels.findIndex((p) => p.id === id);
     if (index !== -1) {
       currentIndex = index;
+      updateDownArrow();
       window.scrollTo({ top: index * viewportHeight, behavior: "smooth" });
       triggerBackgroundPulse();
     }
