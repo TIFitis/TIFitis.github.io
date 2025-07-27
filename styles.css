@@ -303,7 +303,7 @@ body.bg-pulse::after {
 
 /* Arrow linking to next section */
 .down-arrow {
-  position: absolute;
+  position: fixed;
   left: 50%;
   bottom: 1.5rem;
   transform: translate(-50%, 0);
