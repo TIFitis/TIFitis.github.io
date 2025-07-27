@@ -92,6 +92,14 @@ body {
   transform: scale(1);
 }
 
+#fluid-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(80px);
+}
+
 /* Animated gradient background */
 body::before {
   content: "";
@@ -110,22 +118,25 @@ body::before {
   pointer-events: none;
   z-index: 0;
   transform: translate3d(0, var(--bg-scroll), 0);
-  animation: gradientShift 30s ease-in-out infinite;
+  animation: gradientShift 20s ease-in-out infinite;
 }
 
 body.bg-pulse::before {
-  animation: gradientPulse 0.7s ease-out, gradientShift 30s ease-in-out infinite;
+  animation: gradientPulse 0.7s ease-out, gradientShift 20s ease-in-out infinite;
 }
 
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
+    transform: scale(1);
   }
   50% {
     background-position: 100% 50%;
+    transform: scale(1.2);
   }
   100% {
     background-position: 0% 50%;
+    transform: scale(1);
   }
 }
 
