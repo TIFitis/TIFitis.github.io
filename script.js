@@ -65,7 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
     clearTimeout(interactionTimeout);
     interactionTimeout = setTimeout(showArrow, 3000);
   };
-  const handleInteraction = () => {
+  const handleInteraction = (e) => {
+    if (downArrow && (e.target === downArrow || downArrow.contains(e.target))) {
+      return;
+    }
     hideArrow();
     scheduleArrowShow();
   };
@@ -78,8 +81,19 @@ document.addEventListener("DOMContentLoaded", () => {
   createDownArrow();
   updateDownArrow();
 
-  ["scroll", "mousemove", "keydown", "touchstart"].forEach((evt) =>
+  ["scroll", "keydown", "touchstart"].forEach((evt) =>
     window.addEventListener(evt, handleInteraction, { passive: true })
+  );
+
+  const root = document.documentElement;
+  window.addEventListener(
+    "mousemove",
+    (e) => {
+      root.style.setProperty("--mouse-x", `${e.clientX}px`);
+      root.style.setProperty("--mouse-y", `${e.clientY}px`);
+      handleInteraction(e);
+    },
+    { passive: true },
   );
 
   const observer = new IntersectionObserver(
