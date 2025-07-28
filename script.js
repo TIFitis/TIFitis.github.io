@@ -23,6 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
   updateViewportHeight();
 
   let downArrow;
+
+  const updateArrowPosition = () => {
+    if (!downArrow) return;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    downArrow.style.left = `calc(50% + ${scrollbarWidth / 2}px)`;
+  };
+
   const createDownArrow = () => {
     const arrowSvg =
       '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>';
@@ -38,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollToSection(nextId);
     });
     document.body.appendChild(downArrow);
+    updateArrowPosition();
   };
 
   const updateDownArrow = () => {
@@ -48,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       downArrow.href = `#${nextId}`;
       downArrow.style.display = "flex";
     }
+    updateArrowPosition();
   };
 
   let interactionTimeout;
@@ -188,6 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateViewportHeight();
     setBodyHeight();
     updatePanels();
+    updateArrowPosition();
   });
   updatePanels();
   window.scrollToSection = (id) => {

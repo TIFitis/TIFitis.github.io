@@ -65,6 +65,8 @@ body {
   inset: 0;
   overflow: hidden;
   z-index: 1;
+  margin-left: calc((100vw - 100%) / 2);
+  margin-right: calc((100vw - 100%) / 2);
 }
 
 .panel {
@@ -200,7 +202,7 @@ body {
 /* Arrow linking to next section */
 .down-arrow {
   position: fixed;
-  left: 50%;
+  left: 50vw;
   bottom: 2rem;
   transform: translate(-50%, 0);
   width: 28px;
