@@ -24,11 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let downArrow;
 
-  const updateArrowPosition = () => {
-    if (!downArrow) return;
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    downArrow.style.left = `calc(50% + ${scrollbarWidth / 2}px)`;
-  };
 
   const createDownArrow = () => {
     const arrowSvg =
@@ -45,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollToSection(nextId);
     });
     document.body.appendChild(downArrow);
-    updateArrowPosition();
   };
 
   const updateDownArrow = () => {
@@ -56,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
       downArrow.href = `#${nextId}`;
       downArrow.style.display = "flex";
     }
-    updateArrowPosition();
   };
 
   let interactionTimeout;
@@ -197,7 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateViewportHeight();
     setBodyHeight();
     updatePanels();
-    updateArrowPosition();
   });
   updatePanels();
   window.scrollToSection = (id) => {
