@@ -1,13 +1,11 @@
 /*
  * Stylesheet for Akash Banerjee’s portfolio website.
  *
- * The design is inspired by Apple’s Liquid Glass aesthetic: translucent panels,
- * blurred backgrounds and smooth animations. A light tonal backdrop is used
- * with a cool blue accent to draw attention to interactive elements. See
- * Apple’s description of Liquid Glass – a translucent material that reflects
- * and refracts its surroundings and dynamically transforms to bring focus to
- * content【462686368662157†L345-L379】. Colour schemes use neutral bases like
- * grays and beiges with accent hues derived from background colours【556735755956070†L157-L170】.
+ * The design uses translucent panels, blurred backgrounds and smooth animations.
+ * A light tonal backdrop along with a cool blue accent highlights interactive
+ * elements. The style aims to reflect and refract surrounding colours while
+ * drawing focus to content. Colour schemes rely on neutral bases such as grays
+ * and beiges, with accent hues derived from background colours.
  */
 
 :root {
@@ -41,7 +39,6 @@ body {
   font-family:
     "Inter",
     system-ui,
-    -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     Roboto,
