@@ -18,6 +18,47 @@ function updateViewportHeight() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const fluidCanvas = document.getElementById("fluid-canvas");
+  if (fluidCanvas && window["webgl-fluid"]) {
+    window["webgl-fluid"](fluidCanvas, {
+      IMMEDIATE: false,
+      TRANSPARENT: true,
+      COLORFUL: false,
+      BACK_COLOR: { r: 230, g: 244, b: 255 },
+      SPLAT_RADIUS: 0.2,
+    });
+    const forward = (e) => {
+      let clientX, clientY;
+      if (e.touches && e.touches[0]) {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+      } else {
+        clientX = e.clientX;
+        clientY = e.clientY;
+      }
+      const map = {
+        touchstart: "mousedown",
+        touchmove: "mousemove",
+        touchend: "mouseup",
+      };
+      const type = map[e.type] || e.type;
+      const evt = new MouseEvent(type, {
+        clientX,
+        clientY,
+        bubbles: true,
+      });
+      fluidCanvas.dispatchEvent(evt);
+    };
+    [
+      "mousemove",
+      "mousedown",
+      "mouseup",
+      "touchstart",
+      "touchmove",
+      "touchend",
+    ].forEach((evt) => window.addEventListener(evt, forward, { passive: true }));
+  }
+
   panels = Array.from(document.querySelectorAll(".sections > .panel"));
 
   updateViewportHeight();
@@ -141,7 +182,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const updatePanels = () => {
-    const scrollPos = window.scrollY;
+    const maxScroll = (panels.length - 1) * viewportHeight;
+    const scrollPos = Math.min(Math.max(window.scrollY, 0), maxScroll);
     const pos = scrollPos / viewportHeight;
 
     panels.forEach((panel, i) => {
@@ -165,10 +207,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!autoScrolling) {
       scrollTimeout = setTimeout(() => {
         const rawIndex = Math.round(window.scrollY / viewportHeight);
-        if (Math.abs(rawIndex - currentIndex) > 1) {
-          currentIndex += Math.sign(rawIndex - currentIndex);
+        const maxIndex = panels.length - 1;
+        const targetIndex = Math.max(0, Math.min(rawIndex, maxIndex));
+        if (Math.abs(targetIndex - currentIndex) > 1) {
+          currentIndex += Math.sign(targetIndex - currentIndex);
         } else {
-          currentIndex = rawIndex;
+          currentIndex = targetIndex;
         }
         updateDownArrow();
         autoScrolling = true;
@@ -193,9 +237,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.scrollToSection = (id) => {
     const index = panels.findIndex((p) => p.id === id);
     if (index !== -1) {
-      currentIndex = index;
+      const clamped = Math.max(0, Math.min(index, panels.length - 1));
+      currentIndex = clamped;
       updateDownArrow();
-      window.scrollTo({ top: index * viewportHeight, behavior: "smooth" });
+      window.scrollTo({ top: clamped * viewportHeight, behavior: "smooth" });
     }
   };
 });
