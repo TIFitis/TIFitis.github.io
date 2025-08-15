@@ -196,6 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
       panel.style.opacity = opacity;
       panel.style.transform = `scale(${scale})`;
       panel.style.pointerEvents = opacity > 0.1 ? "auto" : "none";
+      panel.style.zIndex = Math.round(opacity * 100);
     });
 
   };
