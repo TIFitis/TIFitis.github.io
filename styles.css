@@ -365,6 +365,14 @@ section h2 {
   line-height: 1.6;
 }
 
+/* Keep photography link same colour as text */
+.about-content a.link-inherit,
+.about-content a.link-inherit:visited,
+.about-content a.link-inherit:hover,
+.about-content a.link-inherit:active {
+  color: inherit;
+}
+
 /* Skills */
 .skills .skills-grid {
   display: grid;
