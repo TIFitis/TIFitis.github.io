@@ -27,25 +27,50 @@
 <body class="is-preload">
 	<div id="my-bg" class="bg" onclick="hide_all()"></div>
 	<div id="my-projects" class="special">
-		<article class="special">
-			<h3>Clang Migration</h3>
-			<date>Feb 2023</date>
-			<br>
-			<p>One of the key contributors in the effort towards migrating the OpenMP codegen in Clang to the MLIR based
-				OpenMPIRBuilder. This work
-				would enable the OpenMP MLIR dialect and Clang to share a lot of the codebase, thus improving code quality and
-				reducing code duplication. LLVM Phabricator: <a href="https://reviews.llvm.org/p/TIFitis/"
-					target="_blank">reviews.llvm.org/p/TIFitis</a>.</p>
-		</article>
-		<article class="special">
-			<h3>OpenMP</h3>
-			<date>Sep 2022</date>
-			<br>
-			<p>Working on adding device offloading support features to the OpenMP dialect in MLIR. Our team was the first to
-				achieve end-to-end kernel execution on device for the llvm-flang driver. Received AMD Spotlight award in
-				recognition of this work. LLVM Phabricator: <a href="https://reviews.llvm.org/p/TIFitis/"
-					target="_blank">reviews.llvm.org/p/TIFitis</a>.</p>
-		</article>
+               <article class="special">
+                       <h3>OpenMP Mapping &amp; User-Defined Mappers (LLVM/MLIR/Flang)</h3>
+                       <date>Nov 2023 – Sep 2025</date>
+                       <br>
+                       <ul>
+                               <li>Designed and upstreamed full pipeline support for OpenMP declare mapper / custom mappers across MLIR, LLVM translation and Flang lowering: new MLIR op + lowering, FIR→LLVM conversion, and LLVM translation hooks to materialize mapper info at codegen. GitHub</li>
+                               <li>Implemented default declare-mapper linkage and naming cleanup so frontends can implicitly find and link default mappers without bespoke glue; moved constants into shared OMP headers for consistency. GitHub</li>
+                               <li>Extended mapping semantics in Flang/MLIR: fixed dynamic-extent array mapping, derived-type OOB cases, and implicit/nested allocatable component mapping; added checks for pointer/CharBoxValue edge cases to prevent invalid loads during translation. GitHub</li>
+                               <li>Added mapper metadata fidelity (e.g., preserve to/from flags in mapper base entries) to avoid mis-mapping and enable correct runtime behavior on devices. GitHub</li>
+                               <li>Hardened declare-mapper semantics &amp; scoping in Flang; co-authored fixes to ensure standard-conforming behavior in complex derived-type scenarios. GitHub</li>
+                       </ul>
+               </article>
+               <article class="special">
+                       <h3>AUTOMAP: Parser, Lowering &amp; FIR Conversion to Target Data</h3>
+                       <date>Jul 2025 – Aug 2025</date>
+                       <br>
+                       <ul>
+                               <li>Added Flang parser support for the AUTOMAP modifier and wired it through MLIR lowering so map clauses can be inferred rather than hand-authored. GitHub</li>
+                               <li>Introduced an AutomapToTargetData conversion FIR pass (with iterations/fixes) that rewrites automap annotations into explicit target data mappings, ready for downstream codegen. GitHub</li>
+                               <li>Delivered follow-up stability fixes and test repairs to keep the series green across platforms. GitHub</li>
+                       </ul>
+               </article>
+               <article class="special">
+                       <h3>OpenMP Target-Data &amp; Parallel Directives — OMPIRBuilder Unification</h3>
+                       <date>Jun 2023 – Sep 2024</date>
+                       <br>
+                       <ul>
+                               <li>Migrated key Clang CodeGen paths into the OMPIRBuilder (LLVM): emitTargetDataCalls, device code privatisation, dispatch utilities, and later GPU Reductions—centralising OpenMP device codegen and reducing duplication across frontends. GitHub</li>
+                               <li>Fixed target data region omission for device passes and muted inappropriate codegen in device-only modes; cleaned up duplicate SrcLocInfo generation. GitHub</li>
+                               <li>Evolved the OpenMP MLIR dialect for outlining and isolation: added OutlineableOpenMPOpInterface, IsolatedFromAbove on omp.target, and removed legacy early-outlining to modernise the pipeline. GitHub</li>
+                               <li>Advanced use_device_clause handling end-to-end (MLIR translation + lowering updates) and introduced composite loop attributes + verifier checks for robust transformation pipelines. GitHub</li>
+                               <li>Contributed Flang integration tests for OpenMP/offload and tightened several OpenMP/Flang tests to catch regressions early. GitHub</li>
+                       </ul>
+               </article>
+               <article class="special">
+                       <h3>Flang Complex-Op Lowering &amp; AMDGPU Enablement</h3>
+                       <date>Jul 2025 – Sep 2025</date>
+                       <br>
+                       <ul>
+                               <li>Added ComplexTOROCDLLibraryCalls and extended it with cpow/complex math coverage; forced lowering to complex forms where needed for AMDGPU, plus AMDGPU Target support for complex args/returns. GitHub</li>
+                               <li>Introduced complex.powi at the MLIR level and a Flang ConvertComplexPow pass; followed up with crash fixes and NFC cleanups to stabilise the path. GitHub</li>
+                               <li>Broadened the ROCDL complex library call conversions (more ops) and removed invalid conversions uncovered by tests to ensure correctness across device backends. GitHub</li>
+                       </ul>
+               </article>
 		<article class="special">
 			<h3>LLVM-Flang</h3>
 			<date>Sep 2022</date>
