@@ -67,20 +67,6 @@ body {
   height: 100%;
   z-index: 0;
   pointer-events: none;
-  /* Fallback gradient in case WebGL is not available */
-  background: radial-gradient(120% 80% at 50% 40%, rgba(215,235,255,0.8), rgba(200,225,245,0.6) 40%, rgba(180,210,235,0.5) 70%, rgba(160,195,225,0.4) 100%);
-  background-size: 180% 180%;
-  background-position: 50% 40%;
-  animation: ice-drift 18s ease-in-out infinite alternate;
-}
-
-@keyframes ice-drift {
-  0% {
-    background-position: 50% 40%;
-  }
-  100% {
-    background-position: 52% 42%;
-  }
 }
 
 .sections {
