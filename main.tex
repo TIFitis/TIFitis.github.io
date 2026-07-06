@@ -1,0 +1,127 @@
+% Build with XeLaTeX, then publish: latexmk -xelatex main.tex && cp main.pdf Akash_Banerjee_CV.pdf
+\documentclass[a4paper]{cv-style}
+
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.1em,itemsep=0.15em,topsep=0.2em,parsep=0pt}
+\sethyphenation[variant=british]{english}{OpenMP LLVM Flang AMDGPU}
+
+\begin{document}
+
+\header{Akash }{Banerjee}
+
+\begin{aside}
+\section{Contact}
+\href{https://akashb.me/}{akashb.me}
+\href{mailto:akash@akashb.me}{akash@akashb.me}
+\href{https://github.com/TIFitis}{github.com/TIFitis}
+\href{https://www.linkedin.com/in/akashbanerjeeab/}{LinkedIn}
+~
+United Kingdom
+~
++44 7471 050392
+\section{Core Stack}
+C, C++
+LLVM, MLIR, Flang
+OpenMP offload
+OpenMPIRBuilder
+AMDGPU offload
+Linux
+Python
+\section{Engineering}
+Compiler optimisation
+Low-level debugging
+Program analysis
+Regression testing
+CI/CD
+Git, GDB, LLDB
+\section{Languages}
+English
+Hindi
+Bengali
+\section{Education}
+M.Tech., CSE
+IIT Hyderabad
+9.50/10, 2021
+~
+B.Tech., CSE
+RERF, Kolkata
+8.37/10, 2017
+\end{aside}
+
+\section{Profile}
+Staff compiler engineer specialising in OpenMP target offload for LLVM Flang and MLIR. I work across Fortran lowering, the OpenMP dialect, FIR-to-LLVM conversion, LLVM IR translation and OpenMPIRBuilder, focusing on data mapping, target-data constructs and shared AMDGPU offload code generation. My background includes compiler optimisation, program analysis and formal verification.
+
+\section{Experience}
+
+\begin{entrylist}
+\entry
+  {2026--Pres}
+  {Member of Technical Staff}
+  {\href{https://www.amd.com/en}{AMD, UK}}
+  {\vspace{-0.25cm}}
+\entry
+  {2022--2026}
+  {Senior Compiler Engineer}
+  {\href{https://www.amd.com/en}{AMD, UK}}
+  {Across both AMD roles, I develop OpenMP target offload for LLVM Flang and MLIR across Fortran lowering, dialect design, FIR/LLVM conversion, LLVM IR translation and OpenMPIRBuilder. My work combines language and IR design with production debugging and upstream maintenance. Recognition includes multiple \textbf{AMD Spotlight Awards} and an \textbf{AMD Executive Award}.}
+\end{entrylist}
+
+\begin{entrylist}
+\entry
+  {2021--2022}
+  {Graphics Compiler Engineer}
+  {\href{https://imaginationtech.com/}{Imagination Technologies, UK}}
+  {Developed and debugged code-generation paths in a proprietary C++ graphics compiler backend, focusing on generated-code correctness and performance.}
+\end{entrylist}
+
+\section{Key Compiler Projects}
+
+\begin{entrylist}
+\entry
+  {2023--Pres}
+  {OpenMP data mapping and declare mappers}
+  {\href{https://github.com/llvm/llvm-project/commits/main/?author=TIFitis}{LLVM upstream}}
+  {Built major parts of MLIR's OpenMP mapping path: map representation and target-region mapping; \texttt{declare mapper} operations and lowering; map-clause attachment; FIR conversion and LLVM IR translation; and default mapping for Fortran derived types and allocatable components.}
+
+\entry
+  {2026}
+  {OpenMP mapping semantics and diagnostics}
+  {\href{https://github.com/llvm/llvm-project/commits/main/?author=TIFitis}{LLVM upstream}}
+  {Fixed mapper attachment and recursive emission for partial maps and nested types, tightened implicit-mapper rules for pointer captures and data-motion directives, and added Flang diagnostics for unsafe descriptor mappings.}
+
+\entry
+  {2025}
+  {Inferred and derived-type mapping}
+  {\href{https://github.com/llvm/llvm-project/commits/main/?author=TIFitis}{LLVM upstream}}
+  {Implemented AUTOMAP lowering and an FIR pass that converts inferred mappings into explicit target-data operations; extended implicit mapping to nested allocatable components of Fortran derived types.}
+
+\entry
+  {2025}
+  {AMDGPU complex-type and math lowering}
+  {\href{https://github.com/llvm/llvm-project/commits/main/?author=TIFitis}{LLVM upstream}}
+  {Added AMDGPU handling for complex function arguments and results, together with complex operations and ROCDL lowerings required by Flang workloads.}
+
+\entry
+  {2022--2024}
+  {Shared OpenMP offload code generation}
+  {\href{https://github.com/llvm/llvm-project/commits/main/?author=TIFitis}{LLVM upstream}}
+  {Moved reusable offload paths from Clang into OpenMPIRBuilder: mapping arrays and descriptors, target-data calls, device privatisation, dispatch utilities, GPU reductions and mapper emission. Clang and MLIR reuse these paths.}
+
+\entry
+  {2023}
+  {OpenMP target-data constructs in Flang/MLIR}
+  {\href{https://github.com/llvm/llvm-project/commits/main/?author=TIFitis}{LLVM upstream}}
+  {Defined MLIR operations for \texttt{target data}, \texttt{target enter data} and \texttt{target exit data}, then added Flang lowering, FIR-to-LLVM conversion, OpenMPIRBuilder translation and map support for target regions.}
+\end{entrylist}
+
+\section{Publication}
+
+\begin{entrylist}
+\entry
+  {Nov. 2025}
+  {Implementing OpenMP Offload Support in the AMD Next Generation Fortran Compiler}
+  {}
+  {D. Adamski, S. Afonso, \textbf{A. Banerjee}, et al. In \italica{SC Workshops '25}, pp. 1028--1038. Describes the architecture and implementation of OpenMP offload in LLVM Flang. \href{https://doi.org/10.1145/3731599.3767478}{ACM DOI}.}
+\end{entrylist}
+
+\end{document}

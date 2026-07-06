@@ -263,9 +263,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const clamped = Math.max(0, Math.min(index, panels.length - 1));
       currentIndex = clamped;
       updateDownArrow();
+      window.history.replaceState(null, "", `#${id}`);
       window.scrollTo({ top: clamped * viewportHeight, behavior: "smooth" });
     }
   };
+
+  const initialPanelId = window.location.hash.slice(1);
+  const initialPanelIndex = panels.findIndex((panel) => panel.id === initialPanelId);
+  if (initialPanelIndex >= 0) {
+    currentIndex = initialPanelIndex;
+    updateDownArrow();
+    window.scrollTo({ top: currentIndex * viewportHeight });
+    updatePanels();
+  }
 
   // Reduce mobile input issues: track focus and disable transforms/snapping
   const isFormControl = (el) =>

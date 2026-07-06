@@ -328,6 +328,14 @@ section h2 {
   color: var(--accent-color-hover);
 }
 
+.publications .project-grid {
+  max-width: 850px;
+}
+
+.publication-card {
+  width: 100%;
+}
+
 /* About */
 
 .about {
@@ -565,6 +573,25 @@ section h2 {
 
 .shadow-fade.visible:hover {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 850px) and (min-width: 601px) {
+  .navbar {
+    padding-inline: 1rem;
+  }
+
+  .brand-full {
+    display: none;
+  }
+
+  .brand-short {
+    display: inline;
+  }
+
+  .navbar nav a {
+    margin-left: 0.75rem;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 600px) {

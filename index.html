@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="pVWgrMgMQ-ihijZvDCgNk15Zmp2_wztU19quDbDku6Y" />
-    <title>Akash Banerjee – Compiler Engineer</title>
+    <meta
+      name="description"
+      content="Akash Banerjee is a staff compiler engineer at AMD working on LLVM, MLIR, Flang, OpenMP and AMDGPU offload."
+    />
+    <title>Akash Banerjee – Staff Compiler Engineer at AMD</title>
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,7 +18,7 @@
     />
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   </head>
   <body>
     <canvas id="fluid-canvas"></canvas>
@@ -36,6 +40,11 @@
         <a href="#skills" onclick="scrollToSection('skills'); return false;"
           >Skills</a
         >
+        <a
+          href="#publications"
+          onclick="scrollToSection('publications'); return false;"
+          >Publications</a
+        >
         <a href="#projects" onclick="scrollToSection('projects'); return false;"
           >Projects</a
         >
@@ -54,7 +63,7 @@
           class="profile-photo"
         />
         <h1>Akash Banerjee</h1>
-        <p>Compiler Engineer at AMD</p>
+        <p>Staff Compiler Engineer at AMD · LLVM/MLIR · C++ Systems</p>
         <a class="cta-button" href="./Akash_Banerjee_CV.pdf" download>
           Download CV
         </a>
@@ -66,18 +75,22 @@
         <div class="about-panel fade-in shadow-fade">
           <div class="about-content">
             <p>
-              I am a compiler engineer at AMD, UK, currently part of the HPC
-              compiler team for the Frontier supercomputing project. I work on
-              the new llvm‑flang driver for Fortran and on device code
-              offloading support for the OpenMP dialect in MLIR.
+              Hello! I’m Akash, a staff compiler engineer at AMD in the UK. I
+              work on OpenMP target offload in LLVM Flang and MLIR, from
+              Fortran lowering and OpenMP dialect design through LLVM IR
+              generation.
             </p>
             <p>
-              My interests lie in compilers, program analysis, formal
-              verification, and SAT solvers. I attained my master’s in Computer
-              Science &amp; Engineering at IIT Hyderabad under
-              Prof.&nbsp;Saurabh Joshi in the field of software verification, and
-              worked with Prof.&nbsp;Ramakrishna Upadrasta on improving compiler
-              optimizations.
+              My main focus is data mapping: target-data constructs,
+              user-defined and default declare mappers, and derived-type
+              semantics. I have also helped move reusable offload code
+              generation from Clang into OpenMPIRBuilder, allowing Clang and
+              MLIR-based frontends to share the same implementation.
+            </p>
+            <p>
+              My background also includes performance engineering, program
+              analysis and formal verification. I’m always happy to chat about
+              compilers, open source or interesting systems problems.
             </p>
             <p>
               When I’m not coding, you can find me losing at DOTA&nbsp;2,
@@ -95,33 +108,59 @@
           <div class="skill-category fade-in shadow-fade">
             <h3>Programming</h3>
             <ul>
-              <li>Proficient in C and C++</li>
-              <li>Experience with Java, Rust, Python, JavaScript and C#</li>
+              <li>C++ (primary), C and Python</li>
+              <li>Working knowledge of Rust, Java, JavaScript and C#</li>
             </ul>
           </div>
           <div class="skill-category fade-in shadow-fade">
             <h3>Frameworks &amp; Tools</h3>
             <ul>
-              <li>Deep knowledge of MLIR &amp; LLVM compiler infrastructure</li>
-              <li>Experienced with the CPROVER verification framework</li>
-              <li>Git, GDB, LLDB, Eclipse, LaTeX</li>
+              <li>LLVM, MLIR, Flang, OpenMP and OpenMPIRBuilder</li>
+              <li>FIR/LLVM dialect conversion and LLVM IR translation</li>
+              <li>Git, GDB, LLDB and LaTeX</li>
             </ul>
           </div>
           <div class="skill-category fade-in shadow-fade">
             <h3>Systems</h3>
             <ul>
-              <li>Linux system administration</li>
-              <li>CI/CD build bots deployment &amp; maintenance</li>
-              <li>Regression testing</li>
+              <li>OpenMP target offload and data mapping</li>
+              <li>AMDGPU lowering and runtime interfaces</li>
+              <li>Regression testing, CI/CD and build infrastructure</li>
             </ul>
           </div>
           <div class="skill-category fade-in shadow-fade">
-            <h3>Design Tools</h3>
+            <h3>Analysis</h3>
             <ul>
-              <li>Blender, ZBrush</li>
-              <li>Unity, Photoshop</li>
+              <li>Program analysis and formal verification</li>
+              <li>CPROVER, symbolic execution and SAT solving</li>
             </ul>
           </div>
+        </div>
+      </section>
+
+      <!-- Publications section -->
+      <section id="publications" class="panel publications projects">
+        <h2>Publications</h2>
+        <div class="project-grid">
+          <article class="project-card fade-in shadow-fade publication-card">
+            <h3>
+              Implementing OpenMP Offload Support in the AMD Next Generation
+              Fortran Compiler
+            </h3>
+            <small>SC Workshops ’25 · ACM · November 2025</small>
+            <p>
+              Dominik Adamski, Sergio Afonso, <strong>Akash Banerjee</strong>,
+              et al. Proceedings of the SC ’25 Workshops, pp. 1028–1038. The
+              paper describes the architecture and implementation of OpenMP
+              target offload in LLVM Flang.
+            </p>
+            <a
+              href="https://doi.org/10.1145/3731599.3767478"
+              target="_blank"
+              rel="noopener"
+              >Read on ACM Digital Library</a
+            >
+          </article>
         </div>
       </section>
 
@@ -129,48 +168,102 @@
       <section id="projects" class="panel projects">
         <h2>Projects</h2>
         <div class="project-grid">
-          <!-- Project 1 -->
           <div class="project-card fade-in shadow-fade">
-            <h3>AMDGPU Complex Math Enablement (Flang/ROCDL)</h3>
-            <small>Jul&nbsp;2025</small>
+            <h3>OpenMP Data Mapping &amp; Declare Mappers</h3>
+            <small>2023–Present · Flang/MLIR/LLVM</small>
             <p>
-              Enabled complex math on AMDGPU with new complex operations and
-              ROCDL lowerings, and stabilized the path with follow‑up fixes.
+              Developed the OpenMP MLIR mapping representation and end-to-end
+              declare-mapper support across Flang lowering, FIR conversion and
+              LLVM IR translation. This includes explicit user mappers,
+              implicit default mappers and derived-type component mapping.
             </p>
-            <a href="https://github.com/llvm/llvm-project/commits/main/?author=TIFitis" target="_blank" rel="noopener">Learn more</a>
+            <a
+              href="https://github.com/llvm/llvm-project/pulls?q=is%3Apr+author%3ATIFitis"
+              target="_blank"
+              rel="noopener"
+              >LLVM contributions</a
+            >
           </div>
-          <!-- Project 2 -->
           <div class="project-card fade-in shadow-fade">
-            <h3>OpenMP AUTOMAP Inference (Flang/MLIR)</h3>
-            <small>Jul&nbsp;2025</small>
+            <h3>OpenMP Mapping Semantics &amp; Diagnostics</h3>
+            <small>2026 · Flang/MLIR</small>
             <p>
-              Added AUTOMAP support so the compiler can infer map clauses and
-              reduce boilerplate; includes conversion to explicit target‑data
-              mappings and cross‑platform stabilization.
+              Fixed mapper attachment and recursive emission for partial maps
+              and nested types, tightened implicit-mapper rules for pointer
+              captures and data-motion directives, and added diagnostics for
+              unsafe descriptor mappings.
             </p>
-            <a href="https://github.com/llvm/llvm-project/commits/main/?author=TIFitis" target="_blank" rel="noopener">Learn more</a>
+            <a
+              href="https://github.com/llvm/llvm-project/commits/main/?author=TIFitis"
+              target="_blank"
+              rel="noopener"
+              >LLVM contributions</a
+            >
           </div>
-          <!-- Project 3 -->
           <div class="project-card fade-in shadow-fade">
-            <h3>OpenMP User‑Defined Mappers (MLIR/LLVM/Flang)</h3>
-            <small>Nov&nbsp;2023</small>
+            <h3>Inferred &amp; Derived-Type Mapping</h3>
+            <small>2025 · Flang/MLIR</small>
             <p>
-              Upstreamed end‑to‑end support for user‑defined mappers, standardized
-              default‑mapper discovery, and strengthened semantics for arrays and
-              derived types to ensure correct device mapping.
+              Implemented AUTOMAP lowering and an FIR pass that converts
+              inferred mappings into explicit target-data operations, then
+              extended implicit mapping to nested allocatable components of
+              Fortran derived types.
             </p>
-            <a href="https://github.com/llvm/llvm-project/commits/main/?author=TIFitis" target="_blank" rel="noopener">Learn more</a>
+            <a
+              href="https://github.com/llvm/llvm-project/commits/main/?author=TIFitis"
+              target="_blank"
+              rel="noopener"
+              >LLVM contributions</a
+            >
           </div>
-          <!-- Project 4 -->
           <div class="project-card fade-in shadow-fade">
-            <h3>OpenMP Offload Codegen Unification (OpenMPIRBuilder/MLIR)</h3>
-            <small>Jun&nbsp;2023</small>
+            <h3>AMDGPU Complex-Type &amp; Math Lowering</h3>
+            <small>2025 · Flang/MLIR/ROCDL</small>
             <p>
-              Centralized OpenMP target‑data and parallel codegen in
-              OpenMPIRBuilder and modernized the MLIR dialect to reduce
-              duplication and enable reliable transformations.
+              Added AMDGPU handling for complex function arguments and
+              results, together with complex operations and ROCDL lowerings
+              required by Flang workloads.
             </p>
-            <a href="https://github.com/llvm/llvm-project/commits/main/?author=TIFitis" target="_blank" rel="noopener">Learn more</a>
+            <a
+              href="https://github.com/llvm/llvm-project/commits/main/?author=TIFitis"
+              target="_blank"
+              rel="noopener"
+              >LLVM contributions</a
+            >
+          </div>
+          <div class="project-card fade-in shadow-fade">
+            <h3>Shared OpenMP Offload Code Generation</h3>
+            <small>2022–2024 · Clang/OpenMPIRBuilder/MLIR</small>
+            <p>
+              Migrated reusable offload code generation from Clang into
+              OpenMPIRBuilder, including target-data calls, mapping arrays and
+              descriptors, device privatisation, GPU reductions and mapper
+              emission. These paths are reused by Clang and MLIR-based
+              frontends.
+            </p>
+            <a
+              href="https://github.com/llvm/llvm-project/commits/main/?author=TIFitis"
+              target="_blank"
+              rel="noopener"
+              >LLVM contributions</a
+            >
+          </div>
+          <div class="project-card fade-in shadow-fade">
+            <h3>OpenMP Target-Data Constructs in Flang/MLIR</h3>
+            <small>2023 · Flang/MLIR/OpenMPIRBuilder</small>
+            <p>
+              Added operations and end-to-end lowering for
+              <code>target data</code>, <code>target enter data</code> and
+              <code>target exit data</code>, spanning Flang lowering,
+              FIR-to-LLVM conversion and OpenMPIRBuilder translation, together
+              with map support for target regions.
+            </p>
+            <a
+              href="https://github.com/llvm/llvm-project/commits/main/?author=TIFitis"
+              target="_blank"
+              rel="noopener"
+              >LLVM contributions</a
+            >
           </div>
           <!-- Project 9 -->
           <div class="project-card fade-in shadow-fade">
@@ -340,7 +433,6 @@
           <div class="address">
             <h3>Address</h3>
             <p>
-              Regus – Midsummer Court<br />Milton&nbsp;Keynes MK9 2UB<br />England,
               United Kingdom
             </p>
           </div>
@@ -409,7 +501,7 @@
           </div>
         </div>
         <footer class="footer">
-          <p>&copy;&nbsp;Akash&nbsp;Banerjee&nbsp;2025</p>
+          <p>&copy;&nbsp;Akash&nbsp;Banerjee&nbsp;2026</p>
         </footer>
       </section>
     </main>
