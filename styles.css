@@ -35,6 +35,10 @@ body {
   width: 100%;
 }
 
+html {
+  background-color: var(--background-color);
+}
+
 body {
   font-family:
     "Inter",
@@ -49,7 +53,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  background-color: var(--background-color);
+  background: transparent;
   color: var(--text-color);
   overflow-x: hidden;
   line-height: 1.6;
@@ -67,6 +71,11 @@ body {
   height: 100%;
   z-index: 0;
   pointer-events: none;
+  opacity: 0.92;
+  transform: translateZ(0);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.5), transparent 70%),
+    var(--background-color);
 }
 
 .sections {
@@ -619,5 +628,27 @@ section h2 {
   .contact-form input,
   .contact-form textarea {
     font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
+  }
+
+  .panel,
+  .fade-in,
+  .shadow-fade,
+  .cta-button,
+  .project-card,
+  .skill-category,
+  .about-panel {
+    animation: none;
+    transition-duration: 0.01ms;
+  }
+
+  .down-arrow {
+    animation: none;
   }
 }
