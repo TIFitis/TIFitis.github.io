@@ -75,13 +75,13 @@
 
 \newcommand{\header}[2]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=2cm] (box) at (current page.north){};
-    \node [anchor=center] (name) at (box) {%
-      \fontsize{40pt}{65pt}\color{header}%
-      {\thinfont #1}{\bodyfont  #2}
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=1.85cm] (box) at (current page.north){};
+    \node [anchor=north] (name) at ([yshift=-0.18cm]box.north) {%
+      \fontsize{34pt}{42pt}\color{header}%
+      {\thinfont #1}{\bodyfont #2}
     };
   \end{tikzpicture}
-  \vspace{1cm}
+  \vspace{0.85cm}
   \vspace{-2\parskip}
 }
 
@@ -165,18 +165,33 @@
 
 \setlength{\tabcolsep}{0pt}
 \newenvironment{entrylist}{%
-  \begin{tabular*}{\textwidth}{p{1.65cm}@{\hspace{0.2cm}}l}
+  \begin{tabular*}{\textwidth}{p{2.05cm}@{\hspace{0.2cm}}l}
 }{%
   \end{tabular*}
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  {\footnotesize #1}&\parbox[t]{12.25cm}{%
+  {\footnotesize #1}&\parbox[t]{11.85cm}{%
     \raggedright%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4\vspace{\parsep}%
+  }\\}
+\newcommand{\headlineentry}[4]{%
+  {\footnotesize #1}&\parbox[t]{11.85cm}{%
+    \raggedright%
+    #2%
+    \hfill%
+    {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
+    #4\vspace{\parsep}%
+  }\\}
+\newcommand{\headlineonly}[3]{%
+  {\footnotesize #1}&\parbox[t]{11.85cm}{%
+    \raggedright%
+    #2%
+    \hfill%
+    {\footnotesize\addfontfeature{Color=lightgray} #3}%
   }\\}
 
 %----------------------------------------------------------------------------------------
@@ -190,7 +205,7 @@
   \renewcommand{\section}[1]{
     \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
   }
-  \begin{textblock}{3.6}(1, 1.87)
+  \begin{textblock}{4.2}(0.8, 2.58)
   \begin{flushright}
   \obeycr
 }{%
@@ -206,6 +221,7 @@
 
 \RequirePackage[left=5.6cm,top=1cm,right=1cm,bottom=1cm,nohead,nofoot]{geometry}
 \RequirePackage[colorlinks = false,
+            pdfborder = {0 0 0},
             linkcolor = blue,
             urlcolor  = blue,
             citecolor = blue,

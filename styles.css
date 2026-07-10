@@ -284,6 +284,15 @@ section h2 {
   margin: 0 auto;
 }
 
+.project-intro {
+  max-width: 760px;
+  margin: -0.7rem auto 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
 .project-card {
   background: var(--card-bg-light);
   backdrop-filter: blur(20px) saturate(180%);
@@ -294,6 +303,13 @@ section h2 {
   transition:
     transform 0.4s ease,
     box-shadow 0.4s ease;
+}
+
+.project-card.featured-project {
+  border: 1px solid rgba(10, 132, 255, 0.22);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(240, 249, 255, 0.72)),
+    var(--card-bg-light);
 }
 
 .project-card:hover {

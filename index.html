@@ -167,15 +167,21 @@
       <!-- Projects section -->
       <section id="projects" class="panel projects">
         <h2>Projects</h2>
+        <p class="project-intro">
+          Selected compiler, low-level systems and verification work. Current
+          LLVM projects are shown first; older research projects are retained
+          where they show end-to-end systems work.
+        </p>
         <div class="project-grid">
-          <div class="project-card fade-in shadow-fade">
-            <h3>OpenMP Data Mapping &amp; Declare Mappers</h3>
+          <div class="project-card featured-project fade-in shadow-fade">
+            <h3>End-to-End OpenMP Data Mapping</h3>
             <small>2023–Present · Flang/MLIR/LLVM</small>
             <p>
-              Developed the OpenMP MLIR mapping representation and end-to-end
-              declare-mapper support across Flang lowering, FIR conversion and
-              LLVM IR translation. This includes explicit user mappers,
-              implicit default mappers and derived-type component mapping.
+              Built core pieces of the OpenMP mapping path for LLVM Flang and
+              MLIR: map representation, target-region mapping, map-clause
+              attachment, FIR conversion, LLVM IR translation and mapper
+              emission. The work covers explicit user mappers, default mappers
+              and derived-type component mapping.
             </p>
             <a
               href="https://github.com/llvm/llvm-project/pulls?q=is%3Apr+author%3ATIFitis"
@@ -184,14 +190,15 @@
               >LLVM contributions</a
             >
           </div>
-          <div class="project-card fade-in shadow-fade">
-            <h3>OpenMP Mapping Semantics &amp; Diagnostics</h3>
+          <div class="project-card featured-project fade-in shadow-fade">
+            <h3>Mapper Semantics, AUTOMAP &amp; Diagnostics</h3>
             <small>2026 · Flang/MLIR</small>
             <p>
-              Fixed mapper attachment and recursive emission for partial maps
-              and nested types, tightened implicit-mapper rules for pointer
-              captures and data-motion directives, and added diagnostics for
-              unsafe descriptor mappings.
+              Implemented AUTOMAP lowering and mapper-semantics fixes for
+              partial maps, nested types, pointer captures and data-motion
+              directives. Added diagnostics for unsafe descriptor mappings so
+              incorrect offload cases fail clearly instead of producing
+              misleading generated code.
             </p>
             <a
               href="https://github.com/llvm/llvm-project/commits/main/?author=TIFitis"
@@ -200,8 +207,8 @@
               >LLVM contributions</a
             >
           </div>
-          <div class="project-card fade-in shadow-fade">
-            <h3>Inferred &amp; Derived-Type Mapping</h3>
+          <div class="project-card featured-project fade-in shadow-fade">
+            <h3>Derived-Type &amp; Inferred Mapping</h3>
             <small>2025 · Flang/MLIR</small>
             <p>
               Implemented AUTOMAP lowering and an FIR pass that converts
@@ -216,7 +223,7 @@
               >LLVM contributions</a
             >
           </div>
-          <div class="project-card fade-in shadow-fade">
+          <div class="project-card featured-project fade-in shadow-fade">
             <h3>AMDGPU Complex-Type &amp; Math Lowering</h3>
             <small>2025 · Flang/MLIR/ROCDL</small>
             <p>
@@ -231,8 +238,8 @@
               >LLVM contributions</a
             >
           </div>
-          <div class="project-card fade-in shadow-fade">
-            <h3>Shared OpenMP Offload Code Generation</h3>
+          <div class="project-card featured-project fade-in shadow-fade">
+            <h3>Reusable OpenMP Offload Code Generation</h3>
             <small>2022–2024 · Clang/OpenMPIRBuilder/MLIR</small>
             <p>
               Migrated reusable offload code generation from Clang into
@@ -248,8 +255,8 @@
               >LLVM contributions</a
             >
           </div>
-          <div class="project-card fade-in shadow-fade">
-            <h3>OpenMP Target-Data Constructs in Flang/MLIR</h3>
+          <div class="project-card featured-project fade-in shadow-fade">
+            <h3>OpenMP Target-Data Constructs</h3>
             <small>2023 · Flang/MLIR/OpenMPIRBuilder</small>
             <p>
               Added operations and end-to-end lowering for
@@ -268,12 +275,13 @@
           <!-- Project 9 -->
           <div class="project-card fade-in shadow-fade">
             <h3>Proteus: Polymorphic Compilation</h3>
-            <small>Jun&nbsp;2021</small>
+            <small>Jun&nbsp;2021 · Compiler systems</small>
             <p>
-              Developed a compiler tool using polymorphic compilation and
-              execution techniques to mitigate a class of side‑channel attacks
-              with minimal performance overhead. Part of my master's thesis
-              project.
+              Designed and built a compiler tool using polymorphic compilation
+              and execution techniques to mitigate a class of side-channel
+              attacks with low overhead. This was my master's thesis work and
+              sits at the boundary between compiler transformations and
+              low-level execution behaviour.
             </p>
           </div>
           <!-- Project 5 -->
@@ -302,13 +310,13 @@
           </div>
           <!-- Project 6 -->
           <div class="project-card fade-in shadow-fade">
-            <h3>Loop Acceleration</h3>
-            <small>Oct&nbsp;2019</small>
+            <h3>Pinaka: Loop Acceleration</h3>
+            <small>Oct&nbsp;2019 · Program verification</small>
             <p>
-              Added a loop acceleration module to the Pinaka verifier for quick
-              detection of counterexamples in loops simulating polynomial
-              functions. Pinaka won the third‑fastest verifier position in
-              SV‑COMP’20 Floats sub‑category.
+              Added a loop-acceleration module for Pinaka, a symbolic-execution
+              based C verifier used in SV-COMP. The module targets faster
+              counterexample discovery for loops that simulate polynomial
+              functions.
             </p>
             <a
               href="https://github.com/TIFitis/loop_acceleration"
@@ -316,6 +324,12 @@
               target="_blank"
               rel="noopener"
               >Source</a
+            >
+            <a
+              href="https://sv-comp.sosy-lab.org/2020/results/results-verified/"
+              target="_blank"
+              rel="noopener"
+              >SV-COMP</a
             >
           </div>
           <!-- Project 7 -->
